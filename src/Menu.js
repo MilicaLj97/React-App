@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme, fade } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -171,19 +171,48 @@ const useStyles = makeStyles(theme => ({
 export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
 
+  
+
+  const [open, setOpen] = React.useState(sessionStorage.getItem('myDrawer'));
+  
+  
   
   const handleDrawerOpen = () => {
     setOpen(true);
+    sessionStorage.setItem('myDrawer', "open");
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
+    sessionStorage.setItem('myDrawer', "closed");
+    
   };
-    function handleClick(url) {
-       window.location.href=url;
-  };
+
+  
+ useEffect(() => {
+  if(sessionStorage.getItem('myDrawer')==="open")
+  {
+    setOpen(true);
+  }
+  else
+  {
+    setOpen(false);
+  }
+  
+ });
+
+  
+   
+   
+function handleMenuClick(title, url){
+ 
+    window.location.href='/'+ url;
+    setTitle(title);
+    sessionStorage.setItem('myValueInLocalStorage', title);
+  
+}
+  
 
   const [title, setTitle] = React.useState(sessionStorage.getItem('myValueInLocalStorage') || 'Home');
   const [user, setUser] = React.useState('Strance');
@@ -269,16 +298,8 @@ export default function MiniDrawer() {
          
         <List>
         
-        {tileData.map(tile => (
+        {tileData.map(tile => (<ListItem onClick={(e)=>  {handleMenuClick(tile.title, tile.url)}} button key={tile.title} >
  
-      <ListItem onClick={(e)=>  {
-      handleClick(tile.url);
-      setTitle(tile.title);
-      
-      sessionStorage.setItem('myValueInLocalStorage', tile.title);
-        }
-      }  
-      button key={tile.title} >
           <ListItemIcon>{tile.icon}</ListItemIcon>
           <ListItemText primary={tile.title} />
           </ListItem>
