@@ -1,3 +1,10 @@
+TO INSTALL !!!
+
+npm install @material-ui/core
+npm install @material-ui/icons
+https://nodejs.org/en/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
