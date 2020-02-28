@@ -218,11 +218,23 @@ export default function MiniDrawer() {
            {title}
            </Typography>
            
-           <TextField type="text" className={classes.inputFiled} id="standard-basic" label="User"/>
-           <Button onClick={
+           <TextField onKeyDown={ (e) =>{if(e.key === 'Enter')
+                             {
+                             setUser(e.target.value);
+                              }
+                            }
+           
+            
+           }
+           type="text" className={classes.inputFiled} id="standard-basic" label="User"/>
+           <Button 
+           onClick={
              (e) => {
-              setUser(document.getElementById("standard-basic").value);
-              }}
+               
+                setUser(document.getElementById("standard-basic").value);
+               }
+              
+              }
            
               color="primary" >
               Login
