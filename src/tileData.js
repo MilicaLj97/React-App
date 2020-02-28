@@ -29,8 +29,6 @@ const tileData = [
       url:'Games',
     },
       
-    
-    
   ];
   
   export default tileData;
