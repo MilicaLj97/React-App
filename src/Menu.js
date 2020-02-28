@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme, fade } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -146,6 +148,24 @@ const useStyles = makeStyles(theme => ({
       display: 'none',
     },
   },
+  inputFiled: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: 200,
+      color: 'aliceblue',
+    },
+    marginLeft: 'auto',
+    marginBottom: '10px!important',
+    
+  },
+  buttonUser: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  login:{
+    marginLeft: 'auto',
+  }
 }));
 
 export default function MiniDrawer() {
@@ -166,6 +186,11 @@ export default function MiniDrawer() {
   };
 
   const [title, setTitle] = React.useState(sessionStorage.getItem('myValueInLocalStorage') || 'Home');
+  const [user, setUser] = React.useState('Strance');
+
+ 
+
+
   return (
  
     <div className={classes.root}>
@@ -192,7 +217,18 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap>
            {title}
            </Typography>
+           
+           <TextField type="text" className={classes.inputFiled} id="standard-basic" label="User"/>
+           <Button onClick={
+             (e) => {
+              setUser(document.getElementById("standard-basic").value);
+              }}
+           
+              color="primary" >
+              Login
+              </Button>
 
+              <div className={classes.login}>Dobar dan, {user}</div>
         </Toolbar>
       </AppBar>
       <Drawer
