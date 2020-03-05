@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { makeStyles, useTheme, fade } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import Avatar from '@material-ui/core/Avatar';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -20,6 +20,7 @@ import tileData from './tileData';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Card from './Card';
+import avatarData from './avatarData';
 
 
 const drawerWidth = 240;
@@ -165,18 +166,44 @@ const useStyles = makeStyles(theme => ({
   },
   login:{
     marginLeft: 'auto',
+    marginRight:'10px!important',
   }
 }));
 
 export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
-
   
-
   const [open, setOpen] = React.useState(sessionStorage.getItem('myDrawer'));
+  const [title, setTitle] = React.useState(sessionStorage.getItem('myValueInLocalStorage') || 'Home');
+  const [user, setUser] = React.useState('Strance');
+
+  const [poruka, setPoruka] = React.useState(sessionStorage.getItem('myPoruka') || 'Zdravo');
+
+  const vreme = new Date();
+
+  useEffect(() => {
+    if(vreme.getHours() < 12)
+    {
+      setPoruka("Dobro jutro");
+    }
+    else if(vreme.getHours() < 18)
+    {
+      setPoruka("Dobar dan");
+    }
+    else { setPoruka("Dobro vece"); }
+      
+  }, [vreme]);
   
-  
+  useEffect(() => {
+    if(sessionStorage.getItem('myDrawer')==="open")
+    {
+      setOpen(true);
+    }
+    else
+    {
+      setOpen(false);
+    }}, []);
   
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -185,41 +212,17 @@ export default function MiniDrawer() {
 
   const handleDrawerClose = () => {
     setOpen(false);
-    sessionStorage.setItem('myDrawer', "closed");
-    
+    sessionStorage.setItem('myDrawer', "closed");    
   };
-
   
- useEffect(() => {
-  if(sessionStorage.getItem('myDrawer')==="open")
-  {
-    setOpen(true);
-  }
-  else
-  {
-    setOpen(false);
-  }
-  
- });
-
-  
-   
-   
-function handleMenuClick(title, url){
+ 
+  function handleMenuClick(title, url){
  
     window.location.href='/'+ url;
     setTitle(title);
     sessionStorage.setItem('myValueInLocalStorage', title);
+  }
   
-}
-  
-
-  const [title, setTitle] = React.useState(sessionStorage.getItem('myValueInLocalStorage') || 'Home');
-  const [user, setUser] = React.useState('Strance');
-
- 
-
-
   return (
  
     <div className={classes.root}>
@@ -257,19 +260,20 @@ function handleMenuClick(title, url){
            }
            type="text" className={classes.inputFiled} id="standard-basic" label="User"/>
            <Button 
-           onClick={
-             (e) => {
+           onClick={() => {setUser(document.getElementById("standard-basic").value); }}
+           color="primary">
+              <p position="absolute" bottom="0">Login </p>
+           </Button>  
                
-                setUser(document.getElementById("standard-basic").value);
-               }
               
-              }
            
-              color="primary" >
-              Login
-              </Button>
+              
+              
+             
 
-              <div className={classes.login}>Dobar dan, {user}</div>
+              <div className={classes.login}> {poruka}, {user}</div>
+              <div margin="50">{avatarData.map(avatar => (<Avatar alt={avatar.name} src={avatar.img} /> ))}</div>
+              
         </Toolbar>
       </AppBar>
       <Drawer

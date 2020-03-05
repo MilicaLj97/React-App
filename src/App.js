@@ -1,6 +1,6 @@
 import React from 'react';
 import MiniDrawer from './Menu';
-
+import MediaCard from './Profile';
 
 
 

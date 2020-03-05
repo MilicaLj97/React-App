@@ -1,5 +1,6 @@
 
 import Slika from './34190918.jpg';
+import logo from './dtc.jpg';
 
 const cardData = [
     {
@@ -8,7 +9,7 @@ const cardData = [
       title: 'Test 1',
       status: 'Aktivan',
       details: 'Detalji test test test test test test test test test test test test test test test test test test test',
-      company: 'DTC',
+      logo: logo,
   
     },
     {
