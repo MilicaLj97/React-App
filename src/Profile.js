@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ProfileHeader from './ProfileHeader';
 import ProfileCard from './ProfileCard';
+// import VerticalTabs from './ProfileTabs';
+import SimpleList from './ProfileList';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -11,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor:'white!important',
     boxShadow:'8px 8px 5px lightgrey', 
     width:'40%',
-    height:800,
+    height:700,
     padding:20,
   },
 }));
@@ -26,6 +28,7 @@ function Profile() {
       <ProfileHeader/>
         <div className={classes.root}> 
         <ProfileCard/> 
+        <SimpleList/>
         </div>
       
     </div>
