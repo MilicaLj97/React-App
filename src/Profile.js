@@ -5,9 +5,13 @@ import ProfileCard from './ProfileCard';
 // import VerticalTabs from './ProfileTabs';
 import SimpleList from './ProfileList';
 import ProfileTags from './ProfileTags';
+import BasicInformationCard from './BasicInformationCard';
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  root:{
+    display: 'flex',
+  },
+  left: {
     marginTop:10,
     marginLeft:10,
     marginBottom:10,
@@ -17,6 +21,16 @@ const useStyles = makeStyles(theme => ({
     height:780,
     padding:20,
     display:'grid',
+    overflow: 'hidden',
+  },
+  right:{
+    marginTop:10,
+    marginLeft:10,
+    marginBottom:10,
+    backgroundColor:'white!important',
+    boxShadow:'8px 8px 5px lightgrey', 
+    width:'54%',
+    padding:20,
     overflow: 'hidden',
   },
   card:{
@@ -35,15 +49,19 @@ function Profile() {
 
   return (
     
-    <div className="Profile">
+    <div className="Profile" >
      
       <ProfileHeader/>
-        <div className={classes.root}> 
-        <div className={classes.card}><ProfileCard/></div>
-        <div className={classes.tags}><ProfileTags/></div> 
-        <div className={classes.list}><SimpleList/></div>
+      <div className={classes.root}>
+        <div className={classes.left}> 
+          <div className={classes.card}><ProfileCard/></div>
+          <div className={classes.tags}><ProfileTags/></div> 
+          <div className={classes.list}><SimpleList/></div>
         </div>
-      
+        <div className={classes.right}>
+          <BasicInformationCard/>
+        </div>
+      </div>
     </div>
     
   );

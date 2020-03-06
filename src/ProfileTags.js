@@ -23,8 +23,7 @@ export default function Chips() {
   const classes = useStyles();
 
   return (
-
-   
+    
       <div className={classes.root}>
       {tagsData.map(tile => (
         <Chip label={tile.text} />

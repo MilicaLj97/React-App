@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
   cover: {
     width: 151,
     padding:25,  
+    borderRadius:'5px',
   },
 })); 
 
