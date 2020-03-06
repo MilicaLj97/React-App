@@ -10,6 +10,7 @@ const useStyles = makeStyles(theme => ({
     float: 'left',
     padding: 10,
     width: '100%',
+    overflow:'hidden',
   },
   superdiv: {
     display: 'flex',

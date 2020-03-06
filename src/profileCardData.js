@@ -2,7 +2,7 @@
 import Slika from './34190918.jpg';
 import logo from './dtc.jpg';
 
-const cardData = [
+const profileCardData = [
     {
       id: 1,
       img: Slika,
@@ -17,4 +17,4 @@ const cardData = [
     
   ];
   
-  export default cardData;
+  export default profileCardData;

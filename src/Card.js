@@ -35,7 +35,6 @@ const useStyles = makeStyles(theme => ({
   },
   cover: {
     width: 151,
-    
   },
   controls: {
 
@@ -50,9 +49,6 @@ const useStyles = makeStyles(theme => ({
     height: 38,
     width: 38,
   },
-  icon:{
- 
-  }
 })); 
 
  

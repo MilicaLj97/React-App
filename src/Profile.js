@@ -4,6 +4,7 @@ import ProfileHeader from './ProfileHeader';
 import ProfileCard from './ProfileCard';
 // import VerticalTabs from './ProfileTabs';
 import SimpleList from './ProfileList';
+import ProfileTags from './ProfileTags';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,9 +14,20 @@ const useStyles = makeStyles(theme => ({
     backgroundColor:'white!important',
     boxShadow:'8px 8px 5px lightgrey', 
     width:'40%',
-    height:700,
+    height:780,
     padding:20,
+    display:'grid',
+    overflow: 'hidden',
   },
+  card:{
+    width:'100%',
+  },
+  tags:{
+    width:'100%',
+  },
+  list:{
+    width:'100%',
+  }
 }));
 
 function Profile() {
@@ -27,8 +39,9 @@ function Profile() {
      
       <ProfileHeader/>
         <div className={classes.root}> 
-        <ProfileCard/> 
-        <SimpleList/>
+        <div className={classes.card}><ProfileCard/></div>
+        <div className={classes.tags}><ProfileTags/></div> 
+        <div className={classes.list}><SimpleList/></div>
         </div>
       
     </div>
