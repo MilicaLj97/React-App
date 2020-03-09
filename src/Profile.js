@@ -7,6 +7,7 @@ import SimpleList from './ProfileList';
 import ProfileTags from './ProfileTags';
 import BasicInformationCard from './BasicInformationCard';
 
+
 const useStyles = makeStyles(theme => ({
   root:{
     display: 'flex',
