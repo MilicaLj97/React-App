@@ -3,8 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import basicData from './basicData';
-import EditRoundedIcon from '@material-ui/icons/EditRounded';
-import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import GridListTile from '@material-ui/core/GridListTile';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
