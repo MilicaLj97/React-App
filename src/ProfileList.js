@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -9,7 +9,8 @@ import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import VpnKeyOutlinedIcon from '@material-ui/icons/VpnKeyOutlined';
 import tileData from './tileData';
-import VerticalTabs from './ProfileTabs'
+import { TabContext } from './useContext';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,21 +20,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
 
-function handleMenuClick(title, url){
- 
-    window.location.href='/'+ url;
-    
-    sessionStorage.setItem('myProfileListStorage', title);
-  }
-  
 
 export default function SimpleList() {
   const classes = useStyles();
-
+  const {tab, setTab} = React.useContext(TabContext);
+  
   
 
   return (
@@ -58,8 +50,20 @@ export default function SimpleList() {
           <ListItemText primary="Authorization" />
         </ListItem>
       </List>
+
       <Divider />
-      <VerticalTabs/>
+
+      <List component="nav" aria-label="main mailbox folders">
+      {tileData.map(tile => (<ListItem onClick={(e)=>  {setTab(tile.tab)}} button key={tile.id} >
+          <ListItemIcon>
+            {tile.icon}
+          </ListItemIcon>
+          <ListItemText primary={tile.title} />
+        </ListItem>
+        
+      ))}
+     
+      </List>
     </div>
   );
 }
