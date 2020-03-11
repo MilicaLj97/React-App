@@ -3,12 +3,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import basicData from './basicData';
-import EditRoundedIcon from '@material-ui/icons/EditRounded';
-import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import GridListTile from '@material-ui/core/GridListTile';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import status from './autocompleteData';
+import Button from '@material-ui/core/Button';
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,8 +23,7 @@ const useStyles = makeStyles(theme => ({
   superdiv: {
     display: 'flex',
     width: '100%',
-    height: 455,
-    boxShadow:'8px 8px 5px lightgrey', 
+    height: 655, 
   },
   details: {
     display: 'flex',
@@ -72,18 +74,48 @@ const useStyles = makeStyles(theme => ({
   },
   textField:{
       padding:10,
-  }
+  },
+  description:{
+    marginLeft: 310,
+    
+  },
+  buttonUpdate:{
+    backgroundColor:'#348e34',
+    marginLeft:'695px',
+    marginTop:40,
+  },
+  buttonCancel:{
+    backgroundColor:'grey',
+    marginLeft:'10px',
+    marginTop:40,
+  },
+
+  
+  
 })); 
+const InputStyle = {
+  width: 500,
+  
+};
+const buttonStyle = {
+  textTransform: 'none',
+  
+};
+
+
 
  
 export default function TitlebarGridList() {
   const classes = useStyles();
+  
 function handelClick()
 {
     alert("slika");
 }
+
+
   return (
-   
+    
 <div>
 
 {basicData.map(tile => (
@@ -110,25 +142,46 @@ function handelClick()
             </CardMedia>
             </GridListTile>
             </div>
+
             <div className={classes.labela}>
                 <p className={classes.tekst}>Name</p>
-                <TextField className={classes.textField} id="outlined-basic"  variant="outlined" />
+                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
             </div>
 
+            <div className={classes.labela}>
+                <p className={classes.tekst}>Status</p>
+            <Autocomplete 
+              className={classes.textField}
+              id="combo-box-demo"
+              options={status}
+              getOptionLabel={option => option.title}
+              style={{ width: 300 }}
+              renderInput={params => <TextField style={InputStyle} {...params} variant="outlined" />}
+            />
+            </div>
 
+            <div className={classes.labela}>
+                <p className={classes.description}>Description</p>
 
-            <div className={classes.controls}>
-                <IconButton aria-label="previous" >
-                    <EditRoundedIcon className={classes.icon}/>
-                </IconButton>
-                <IconButton aria-label="play/pause">
-                    <DeleteRoundedIcon className={classes.icon}/>
-                </IconButton>
-      </div>
+                
+                <TextField style={InputStyle}
+                className={classes.textField}
+                id="outlined-multiline-static"
+                multiline
+                rows="4"
+                variant="outlined"
+                />
+            </div>
+            <div className={classes.labela}>
+            <Button style={buttonStyle} className={classes.buttonUpdate} color="inherit">Update basic info</Button>
+            <Button style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
+            </div>
       </form>
+      
     </div>
   </div>
   ))}
 </div>
+
   );
 }

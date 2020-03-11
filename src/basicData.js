@@ -9,9 +9,10 @@ const basicData = [
         icon:  <HomeIcon/>,
         title: 'Home',
         url: 'Home',
-        
+
     },
   
   ];
-  
+
+
   export default basicData;
