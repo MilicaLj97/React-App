@@ -11,7 +11,7 @@ const tileData = [
         icon:  <HomeIcon/>,
         title: 'Home',
         url: 'Home',
-        tab: 'a',
+        tab: 'todo Home',
         
         
     },
@@ -20,7 +20,7 @@ const tileData = [
       icon: <AccessibilityNewIcon/>,
       title: 'Players',
       url: 'Players',
-      tab: 'b',
+      tab: 'todo Players',
       
     },
     {
@@ -28,13 +28,14 @@ const tileData = [
       icon:  <AppsIcon/>,
       title: 'Skills',
       url:'Skills',
-      tab: <BasicInformationCard/>
+      tab: 'todo Skills'
     },
     {
       id: 3,
       icon:  <SportsEsportsIcon/>,
       title: 'Games',
       url:'Games',
+      tab: 'todo Games'
       
     },
       
