@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flex: '1 0 auto',
-    width: '90%',
+
   },
   cover: {
     width: 151,
@@ -32,7 +32,10 @@ const useStyles = makeStyles(theme => ({
   },
 })); 
 
- 
+const CardStyle = {
+  padding:0,
+  marginLeft:15,
+};
 export default function TitlebarGridList() {
   const classes = useStyles();
 
@@ -41,7 +44,7 @@ export default function TitlebarGridList() {
 <div>
 {profileCardData.map(tile => (
 
-    <div className={classes.root}>
+    <div className={classes.root} >
       <div className={classes.superdiv}>
       <CardMedia 
       className={classes.cover}
@@ -50,7 +53,7 @@ export default function TitlebarGridList() {
     />
     <div className={classes.details}>
 
-      <CardContent className={classes.content}>
+      <CardContent className={classes.content} style={CardStyle}>
         <Typography component="h5" variant="h5">
           {tile.title}
         </Typography>
