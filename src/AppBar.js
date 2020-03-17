@@ -85,7 +85,12 @@ export default function SearchAppBar() {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
+            <InputBase onKeyDown={ (e) =>{if(e.key === 'Enter')
+                {
+                  alert("Enter search");
+                }
+              }
+           }
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,

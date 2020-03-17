@@ -255,8 +255,6 @@ export default function MiniDrawer() {
                              setUser(e.target.value);
                               }
                             }
-           
-            
            }
            type="text" className={classes.inputFiled} id="standard-basic" label="User"/>
            <Button 
@@ -264,16 +262,8 @@ export default function MiniDrawer() {
            color="primary">
               <p position="absolute" bottom="0">Login </p>
            </Button>  
-               
-              
-           
-              
-              
-             
-
               <div className={classes.login}> {poruka}, {user}</div>
               <div margin="50">{avatarData.map(avatar => (<Avatar alt={avatar.name} src={avatar.img} /> ))}</div>
-              
         </Toolbar>
       </AppBar>
       <Drawer
