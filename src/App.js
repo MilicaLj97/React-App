@@ -1,5 +1,6 @@
 import React from 'react';
-import MediaCard from './Profile'
+import MediaCard from './Profile';
+import SubmitPage from './SubmitPage';
 
 
 
@@ -7,7 +8,7 @@ function App() {
   return (
     
     <div className="App">
-      <MediaCard/>
+      <SubmitPage/>
       
       
     </div>
