@@ -13,6 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -78,7 +79,10 @@ export default function Chips() {
         </DialogActions>
       </Dialog>
       {tagsData.map(tile => (
-        <Chip label={tile.text} />
+        <Tooltip title={tile.text} aria-label="add">
+        <Chip  label={tile.text} />
+        </Tooltip>
+        
       
       ))}
       </div>
