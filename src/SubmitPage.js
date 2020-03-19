@@ -10,23 +10,24 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import status from './autocompleteData';
 import Button from '@material-ui/core/Button';
-
-
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex-inline',
     float: 'left',
     padding: 30,
+    paddingTop:5,
     overflow: 'hidden',
-    marginLeft: 50,
+    //marginLeft: 50,
     width: '50%',
   },
   superdiv: {
     borderRadius:'5px',
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 8px 0 rgba(0, 0, 0, 0.2)',
+    //boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 8px 0 rgba(0, 0, 0, 0.2)',
     display: 'flex',
-    width: '50%',
+    width: '109%',
     height: 'auto', 
 
   },
@@ -114,11 +115,18 @@ const buttonStyle = {
 };
 
 
-
- 
 export default function TitlebarGridList() {
   const classes = useStyles();
-  
+  const [open, setOpen] = React.useState(false);
+
+const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+const handleClose = () => {
+    setOpen(false);
+  };
+
 function handelClick()
 {
     alert("slika");
@@ -128,11 +136,16 @@ function handelClick()
   return (
     
 <div>
-
+<Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Create new
+</Button>
+<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+<DialogTitle id="form-dialog-title">Create new project</DialogTitle>
 {basicData.map(tile => (
 
     <div className={classes.root}>
       <div className={classes.superdiv}>
+
         <form>
             <div className={classes.labela}>
             <p className={classes.tekst}>Image</p>
@@ -173,8 +186,6 @@ function handelClick()
 
             <div className={classes.labela}>
                 <p className={classes.description}>Description</p>
-
-                
                 <TextField style={InputStyle}
                 className={classes.textField}
                 id="outlined-multiline-static"
@@ -184,15 +195,15 @@ function handelClick()
                 />
             </div>
             <div className={classes.labela}>
-            <Button style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
-            <Button style={buttonStyle} className={classes.buttonUpdate} color="inherit">Create project</Button>
+            <Button  onClick={handleClose} style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
+            <Button onClick={handleClose} style={buttonStyle} className={classes.buttonUpdate} color="inherit">Create project</Button>
             </div>
       </form>
       
     </div>
   </div>
   ))}
+</Dialog>
 </div>
-
   );
 }
