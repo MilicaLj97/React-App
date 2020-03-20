@@ -9,14 +9,14 @@ import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import AppBar from './AppBar';
 import Footer from './Footer';
-
+import PageShowing from './PageShowing';
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex-inline',
     float: 'left',
     padding: 10,
-
+    
   },
   superdiv: {
     display: 'flex',
@@ -95,6 +95,7 @@ export default function TitlebarGridList() {
     </div>
   </div>
   ))}
+  <PageShowing/>
   <Footer/>
 </div>
   );
