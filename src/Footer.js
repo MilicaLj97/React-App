@@ -40,7 +40,7 @@ export default function SearchAppBar() {
           <a href="https://www.dtc.rs"> <img border="1" alt="DTC" src={logo} width="100"/> </a>
       </div>
       <div>
-          <a href="https://www.dtc.rs"> <p style={BarStyle}>Copy right info</p> </a>
+          <a href="https://www.dtc.rs"> <p style={BarStyle}>Copyright info</p> </a>
       </div> 
       <div>
           <a href="https://www.dtc.rs"> <img border="1" alt="DTC" src={ContactImg} width="100" style={BarStyle}/> </a>

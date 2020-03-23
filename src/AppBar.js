@@ -8,6 +8,10 @@ import appbarData from './appbarData';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Popover from '@material-ui/core/Popover';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import SubmitPage from './SubmitPage';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -72,10 +76,19 @@ const useStyles = makeStyles(theme => ({
 
 export default function SearchAppBar() {
   const classes = useStyles();
-  
-  function handleClick(url) {
-    window.location.href=url;
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
   };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+ 
   return (
     <div className={classes.root}>
       <AppBar position="static" >
@@ -99,20 +112,28 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          
-          <List className={classes.menuButton}>
+          {appbarData.map(bar => (
+          <Button aria-describedby={id} onClick={handleClick} className={classes.menuButton}>{bar.titleButton}</Button>
         
-        {appbarData.map(bar => (
-
-      <ListItem onClick={(e)=>  {
-      handleClick(bar.url);
-        }
-      }  
-      button key={bar.titleButton} >
-          <ListItemText primary={bar.titleButton} />
-          </ListItem>
           ))}
-        </List>
+        
+        <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <SubmitPage/>
+        
+      </Popover>
         </Toolbar>
       </AppBar>
     </div>
