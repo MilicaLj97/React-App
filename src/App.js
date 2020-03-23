@@ -1,6 +1,4 @@
 import React from 'react';
-import MediaCard from './Profile';
-import SubmitPage from './SubmitPage';
 import Menu from './Menu';
 
 

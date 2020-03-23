@@ -3,7 +3,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import AppsIcon from '@material-ui/icons/Apps';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
-import BasicInformationCard from './BasicInformationCard';
+
 
 const tileData = [
     {

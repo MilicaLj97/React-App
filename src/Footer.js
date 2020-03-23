@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import cardData from './cardData';
 import logo from './dtc.jpg';
 import ContactImg from './Contact-Info.jpg';
 

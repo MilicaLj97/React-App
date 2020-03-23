@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
 function Profile() {
 
   const [tab, setTab] = useState(null);
-  const providerValue = React.useMemo(() => ({tab, setTab}), [tab, setTab])
+  
   const classes = useStyles();
   
   
