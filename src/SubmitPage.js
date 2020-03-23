@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop:5,
     overflow: 'hidden',
     //marginLeft: 50,
-    width: '50%',
+    width: '60%',
   },
   superdiv: {
     borderRadius:'5px',
@@ -106,8 +106,7 @@ const useStyles = makeStyles(theme => ({
   
 })); 
 const InputStyle = {
-  width: 300,
-  
+  width: 300, 
 };
 const buttonStyle = {
   textTransform: 'none',
@@ -180,7 +179,7 @@ function handelClick()
               options={status}
               getOptionLabel={option => option.title}
               style={{ width: 300 }}
-              renderInput={params => <TextField style={InputStyle} {...params} variant="outlined" />}
+              renderInput={params => <TextField {...params} variant="outlined" />}
             />
             </div>
 
