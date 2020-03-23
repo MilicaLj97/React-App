@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop:5,
     overflow: 'hidden',
     //marginLeft: 50,
-    width: '60%',
+    width: '70%',
   },
   superdiv: {
     borderRadius:'5px',
@@ -84,7 +84,7 @@ const useStyles = makeStyles(theme => ({
     marginRight:50,
   },
   textField:{
-      padding:10,
+      padding:5,
   },
   description:{
     marginLeft: 15,
@@ -94,14 +94,14 @@ const useStyles = makeStyles(theme => ({
   buttonUpdate:{
     backgroundColor:'#e4100b',
     marginLeft:'10px',
-    marginTop:20,
+    marginTop:10,
     marginBottom:10,
   },
   buttonCancel:{
     backgroundColor:'grey',
-    marginTop:20,
+    marginTop:10,
     marginBottom:10,
-    marginLeft:15,
+    marginLeft:10,
   },
 
   
@@ -169,24 +169,21 @@ function handelClick()
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.tekst}>First Name</p>
-                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
+                <TextField style={InputStyle} className={classes.textField} label="First Name" id="outlined-basic"  variant="outlined" />
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.tekst}>Last Name</p>
-                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
+                <TextField style={InputStyle} className={classes.textField} label="Last Name" id="outlined-basic"  variant="outlined" />
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.tekst}>User Name</p>
-                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
+                <TextField style={InputStyle} className={classes.textField} label="User Name" id="outlined-basic"  variant="outlined" />
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.tekst}>Password</p>  
                 <TextField style={InputStyle} className={classes.textField}
                 id="outlined-password-input"
+                label="Password"
                 type="password"
                 autoComplete="current-password"
                 variant="outlined"
@@ -194,19 +191,22 @@ function handelClick()
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.tekst}>Email</p>
-                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
+                <TextField style={InputStyle} className={classes.textField} label="Email" id="outlined-basic"  variant="outlined" />
             </div>
 
             <div className={classes.labela}>
-            <FormControlLabel value="Robot" control={<Radio />} label="Is Robot" />
+                <TextField style={InputStyle} className={classes.textField} label="Phone" id="outlined-basic"  variant="outlined" />
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.description}>Description</p>
+            <FormControlLabel style={InputStyle} className={classes.textField} value="Robot" control={<Radio />} label="Is Robot" />
+            </div>
+
+            <div className={classes.labela}>
                 <TextField style={InputStyle}
                 className={classes.textField}
                 id="outlined-multiline-static"
+                label="Description"
                 multiline
                 rows="4"
                 variant="outlined"
