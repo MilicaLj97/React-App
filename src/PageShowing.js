@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import TextField from '@material-ui/core/TextField';
-import status from './autocompleteData';
+
+import cardData from './cardData';
+import selectData from './selectData';
+
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -40,16 +45,28 @@ const useStyles = makeStyles(theme => ({
   },
 
 })); 
-const InputStyle = {
-  width: 110,
-  
-};
+
 
 
 
 export default function TitlebarGridList() {
   const classes = useStyles();
+  
+  const [state, setState] = useState("5");
+  const [open, setOpen] = React.useState(false);
 
+  const handleChange = event => {
+    setState(event.target.value);
+    
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
   return (
     
 <div>
@@ -60,15 +77,25 @@ export default function TitlebarGridList() {
         <form>
             
             <div className={classes.labela}>
-                <p className={classes.tekst}>Showing 1 - 10 of 4</p>
-            <Autocomplete 
-              className={classes.textField}
-              id="combo-box-demo"
-              options={status}
-              getOptionLabel={option => option.title}
-              style={{ width: 300 }}
-              renderInput={params => <TextField style={InputStyle} {...params} variant="outlined" />}
-            />
+                <p className={classes.tekst}>Showing 1 - {state} of {cardData.length}</p>
+                <FormControl className={classes.formControl}>
+        
+        <Select
+          open={open}
+          onClose={handleClose}
+          onOpen={handleOpen}
+          value={state}
+          onChange={handleChange}
+        >
+        {selectData.map(tile => (
+  
+          <MenuItem value={tile.num}>
+          {tile.title}
+          </MenuItem>
+          ))}
+          
+        </Select>
+      </FormControl>
             </div>
 
       </form>
