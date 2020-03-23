@@ -10,7 +10,8 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import status from './autocompleteData';
 import Button from '@material-ui/core/Button';
-
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -116,9 +117,11 @@ const buttonStyle = {
 
 export default function TitlebarGridList() {
   const classes = useStyles();
-  const [setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
-
+const handleClickOpen = () => {
+    setOpen(true);
+  };
 
 const handleClose = () => {
     setOpen(false);
@@ -133,7 +136,11 @@ function handelClick()
   return (
     
 <div>
-
+<Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Create new
+</Button>
+<Dialog open={open} aria-labelledby="form-dialog-title">
+<DialogTitle id="form-dialog-title">Create new project</DialogTitle>
 {basicData.map(tile => (
 
     <div className={classes.root}>
@@ -196,7 +203,7 @@ function handelClick()
     </div>
   </div>
   ))}
-
+</Dialog>
 </div>
   );
 }

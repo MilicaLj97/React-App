@@ -5,9 +5,8 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import appbarData from './appbarData';
+import Popover from '@material-ui/core/Popover';
 import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
 
 import SubmitPage from './SubmitPage';
 
@@ -74,18 +73,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function SearchAppBar() {
   const classes = useStyles();
-  
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  
-  const [open, setOpen] = React.useState(false);
-
-const handleClickOpen = () => {
-    setOpen(true);
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
   };
 
-const handleClose = () => {
-    setOpen(false);
+  const handleClose = () => {
+    setAnchorEl(null);
   };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
  
   return (
     <div className={classes.root}>
@@ -110,15 +109,28 @@ const handleClose = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          {appbarData.map(bar => (
-          <Button onClick={handleClickOpen} className={classes.menuButton}>{bar.titleButton}</Button>
+          {/* {appbarData.map(bar => (
+          <Button aria-describedby={id} onClick={handleClick} className={classes.menuButton}>{bar.titleButton}</Button>
         
-          ))}
+          ))} */}
+          <Button aria-describedby={id} onClick={handleClick} className={classes.menuButton}>Options</Button>
+        <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <SubmitPage/>
         
-        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Create new project</DialogTitle>
-            <SubmitPage/>
-        </Dialog>
+        </Popover>
         </Toolbar>
       </AppBar>
     </div>

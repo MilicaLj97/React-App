@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './Menu';
-
+import SubmitPage from './SubmitPage';
 
 function App() {
   return (
