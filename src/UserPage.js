@@ -7,8 +7,6 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import GridListTile from '@material-ui/core/GridListTile';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import status from './autocompleteData';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
