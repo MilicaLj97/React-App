@@ -1,10 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import cardData from './cardData';
+import roleData from './roleData';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import AppBar from './AppBar';
@@ -59,7 +58,7 @@ export default function TitlebarGridList() {
    
 <div>
   <AppBar/>
-{cardData.map(tile => (
+{roleData.map(tile => (
 
     <div className={classes.root}>
       <div className={classes.superdiv}>
@@ -68,10 +67,10 @@ export default function TitlebarGridList() {
 
       <CardContent className={classes.content}>
         <Typography component="h5" variant="h5">
-          {tile.title}
+          {tile.Name}
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
-          {tile.status}
+         From: {tile.AvailabilityFrom} To: {tile.AvailabilityTo }
         </Typography>
         <Typography variant="subtitle1" >
           {tile.details}
