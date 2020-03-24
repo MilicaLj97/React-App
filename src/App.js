@@ -5,6 +5,8 @@ import UserPage from './UserPage';
 import RoleList from './RoleList';
 import Profile from './Profile';
 import CreateRole from './CreateRole';
+import CreateRole from './CreateRole';
+import Profile from './Profile';
 
 function App() {
   return (
@@ -13,6 +15,9 @@ function App() {
       
       <Profile/>
      
+
+      <RoleList/>
+
     </div>
     
   );
