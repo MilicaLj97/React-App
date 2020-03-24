@@ -3,6 +3,7 @@ import Menu from './Menu';
 import SubmitPage from './SubmitPage';
 import UserPage from './UserPage';
 import RoleList from './RoleList';
+import CreateRole from './CreateRole';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
     <div className="App">
       
       <RoleList/>
-      
+
     </div>
     
   );

@@ -1,5 +1,3 @@
-
-import Slika from './34190918.jpg';
 import logo from './dtc.jpg';
 
 const roleData = [
@@ -38,8 +36,7 @@ const roleData = [
       details: 'Detalji test test test test test test test test test test test test test test test test test test test',
       
     },
-    
-    
+
   ];
   
   export default roleData;
