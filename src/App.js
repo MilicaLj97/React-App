@@ -1,12 +1,11 @@
 import React from 'react';
-import Menu from './Menu';
-import SubmitPage from './SubmitPage';
-import UserPage from './UserPage';
-import RoleList from './RoleList';
-import Profile from './Profile';
-import CreateRole from './CreateRole';
-import CreateRole from './CreateRole';
-import Profile from './Profile';
+import Menu from './Components/Menu';
+import SubmitPage from './Components/SubmitPage';
+import UserPage from './Components/UserPage';
+import RoleList from './Components/RoleList';
+import Profile from './Components/Profile';
+
+
 
 function App() {
   return (

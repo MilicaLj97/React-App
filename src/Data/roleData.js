@@ -1,4 +1,4 @@
-import logo from './dtc.jpg';
+import logo from '../slike/dtc.jpg';
 
 const roleData = [
     {

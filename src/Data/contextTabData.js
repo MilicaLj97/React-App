@@ -2,7 +2,7 @@ import React from 'react';
 import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import VpnKeyOutlinedIcon from '@material-ui/icons/VpnKeyOutlined';
-import BasicInformationCard from './BasicInformationCard';
+import BasicInformationCard from '../Components/BasicInformationCard';
 
 const contextTabData = [
     {

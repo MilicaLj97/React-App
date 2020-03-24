@@ -3,12 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import roleData from './roleData';
+import roleData from '../Data/roleData';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
-import AppBar from './AppBar';
-import Footer from './Footer';
-import PageShowing from './PageShowing';
+import AppBar from '../Components/AppBar';
+import Footer from '../Components/Footer';
+import PageShowing from '../Components/PageShowing';
 
 const useStyles = makeStyles(theme => ({
   root: {

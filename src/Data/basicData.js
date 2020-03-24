@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeIcon from '@material-ui/icons/Home';
-import Slika from './download.png';
+import Slika from '../slike/download.png';
 
 
 const basicData = [

@@ -15,12 +15,12 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import tileData from './tileData';
+import tileData from '../Data/tileData';
 
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Card from './Card';
-import avatarData from './avatarData';
+import Card from '../Components/Card';
+import avatarData from '../Data/avatarData';
 
 
 const drawerWidth = 240;

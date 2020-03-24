@@ -1,10 +1,17 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import basicData from './basicData';
+import CardMedia from '@material-ui/core/CardMedia';
+import IconButton from '@material-ui/core/IconButton';
+import basicData from '../Data/basicData';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import GridListTile from '@material-ui/core/GridListTile';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Radio from '@material-ui/core/Radio';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop:5,
     overflow: 'hidden',
     //marginLeft: 50,
-    width: '80%',
+    width: '70%',
   },
   superdiv: {
     borderRadius:'5px',
@@ -52,7 +59,8 @@ const useStyles = makeStyles(theme => ({
     width: 38,
   },
   labela:{
-    width:'100%',
+  
+    width:'50%',
   },
   tekst:{
       marginLeft:15,
@@ -67,13 +75,14 @@ const useStyles = makeStyles(theme => ({
   },
   grid:{
       display:'block',
+
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
     marginRight:50,
   },
   textField:{
-      padding:10,
+      padding:5,
   },
   description:{
     marginLeft: 15,
@@ -83,16 +92,18 @@ const useStyles = makeStyles(theme => ({
   buttonUpdate:{
     backgroundColor:'#e4100b',
     marginLeft:'10px',
-    marginTop:20,
+    marginTop:10,
     marginBottom:10,
   },
   buttonCancel:{
     backgroundColor:'grey',
-    marginTop:20,
+    marginTop:10,
     marginBottom:10,
-    marginLeft:15,
+    marginLeft:10,
   },
- 
+
+  
+  
 })); 
 const InputStyle = {
   width: 300, 
@@ -115,14 +126,20 @@ const handleClose = () => {
     setOpen(false);
   };
 
+function handelClick()
+{
+    alert("slika");
+}
+
+
   return (
     
 <div>
 <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Create new
+        Create new user
 </Button>
 <Dialog open={open} aria-labelledby="form-dialog-title">
-<DialogTitle id="form-dialog-title">Create new role</DialogTitle>
+<DialogTitle id="form-dialog-title">Create new user</DialogTitle>
 {basicData.map(tile => (
 
     <div className={classes.root}>
@@ -130,25 +147,64 @@ const handleClose = () => {
 
         <form>
             <div className={classes.labela}>
-                <p className={classes.tekst}>Name</p>
-                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
+            <p className={classes.tekst}>Image</p>
+            <GridListTile key={tile.img} className={classes.grid}> 
+            <CardMedia 
+            className={classes.cover}
+            onClick={handelClick}
+            image={tile.img}
+            title="image">
+                <GridListTileBar
+                className={classes.bar}
+                actionIcon={
+                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                  <AddAPhotoIcon/>
+                </IconButton>
+              }
+            />
+            </CardMedia>
+            </GridListTile>
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.tekst}>Availability From</p>
-                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
+                <TextField style={InputStyle} className={classes.textField} label="First Name" id="outlined-basic"  variant="outlined" />
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.tekst}>Availability To</p>
-                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
+                <TextField style={InputStyle} className={classes.textField} label="Last Name" id="outlined-basic"  variant="outlined" />
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.description}>Description</p>
+                <TextField style={InputStyle} className={classes.textField} label="User Name" id="outlined-basic"  variant="outlined" />
+            </div>
+
+            <div className={classes.labela}>
+                <TextField style={InputStyle} className={classes.textField}
+                id="outlined-password-input"
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+                variant="outlined"
+                />
+            </div>
+
+            <div className={classes.labela}>
+                <TextField style={InputStyle} className={classes.textField} label="Email" id="outlined-basic"  variant="outlined" />
+            </div>
+
+            <div className={classes.labela}>
+                <TextField style={InputStyle} className={classes.textField} label="Phone" id="outlined-basic"  variant="outlined" />
+            </div>
+
+            <div className={classes.labela}>
+            <FormControlLabel style={InputStyle} className={classes.textField} value="Robot" control={<Radio />} label="Is Robot" />
+            </div>
+
+            <div className={classes.labela}>
                 <TextField style={InputStyle}
                 className={classes.textField}
                 id="outlined-multiline-static"
+                label="Description"
                 multiline
                 rows="4"
                 variant="outlined"
@@ -156,7 +212,7 @@ const handleClose = () => {
             </div>
             <div className={classes.labela}>
             <Button  onClick={handleClose} style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
-            <Button onClick={handleClose} style={buttonStyle} className={classes.buttonUpdate} color="inherit">Create role</Button>
+            <Button onClick={handleClose} style={buttonStyle} className={classes.buttonUpdate} color="inherit">Create user</Button>
             </div>
       </form>
       

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabContext } from './useContext';
+import { TabContext } from '../Helpers/useContext';
 
 export default function VerticalTabs() {
 

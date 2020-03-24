@@ -1,4 +1,4 @@
-import Slika from './34190918.jpg';
+import Slika from '../slike/34190918.jpg';
 
 const avatarData = [
     {

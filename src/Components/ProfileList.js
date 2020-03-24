@@ -6,10 +6,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
-import tileData from './tileData';
-import contextTabData from './contextTabData';
+import tileData from '../Data/tileData';
+import contextTabData from '../Data/contextTabData';
 
-import { TabContext } from './useContext';
+import { TabContext } from '../Helpers/useContext';
 
 
 const useStyles = makeStyles(theme => ({

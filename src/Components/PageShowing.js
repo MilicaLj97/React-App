@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import cardData from './cardData';
-import selectData from './selectData';
+import cardData from '../Data/cardData';
+import selectData from '../Data/selectData';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';

@@ -1,29 +1,28 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
-import basicData from './basicData';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import GridListTile from '@material-ui/core/GridListTile';
-import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
+import basicData from '../Data/basicData';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import status from './autocompleteData';
 import Button from '@material-ui/core/Button';
-
-
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex-inline',
     float: 'left',
-    padding: 10,
+    padding: 30,
+    paddingTop:5,
     overflow: 'hidden',
+    //marginLeft: 50,
+    width: '80%',
   },
   superdiv: {
+    borderRadius:'5px',
+    //boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 8px 0 rgba(0, 0, 0, 0.2)',
     display: 'flex',
-    width: '100%',
-    height: 655, 
+    width: '109%',
+    height: 'auto', 
+
   },
   details: {
     display: 'flex',
@@ -53,10 +52,12 @@ const useStyles = makeStyles(theme => ({
     width: 38,
   },
   labela:{
-    display:'flex',
+    width:'100%',
   },
   tekst:{
-      marginLeft:350,
+      marginLeft:15,
+      marginTop: 2,
+      marginBottom:2,
   },
   bar:{
     width:'inherit',
@@ -66,7 +67,6 @@ const useStyles = makeStyles(theme => ({
   },
   grid:{
       display:'block',
-
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
@@ -76,26 +76,26 @@ const useStyles = makeStyles(theme => ({
       padding:10,
   },
   description:{
-    marginLeft: 310,
-    
+    marginLeft: 15,
+    marginTop: 2,
+    marginBottom:2,
   },
   buttonUpdate:{
-    backgroundColor:'#348e34',
-    marginLeft:'695px',
-    marginTop:40,
+    backgroundColor:'#e4100b',
+    marginLeft:'10px',
+    marginTop:20,
+    marginBottom:10,
   },
   buttonCancel:{
     backgroundColor:'grey',
-    marginLeft:'10px',
-    marginTop:40,
+    marginTop:20,
+    marginBottom:10,
+    marginLeft:15,
   },
-
-  
-  
+ 
 })); 
 const InputStyle = {
-  width: 500,
-  
+  width: 300, 
 };
 const buttonStyle = {
   textTransform: 'none',
@@ -103,67 +103,49 @@ const buttonStyle = {
 };
 
 
-
- 
 export default function TitlebarGridList() {
   const classes = useStyles();
-  
-function handelClick()
-{
-    alert("slika");
-}
+  const [open, setOpen] = React.useState(false);
 
+const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     
 <div>
-
+<Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Create new
+</Button>
+<Dialog open={open} aria-labelledby="form-dialog-title">
+<DialogTitle id="form-dialog-title">Create new role</DialogTitle>
 {basicData.map(tile => (
 
     <div className={classes.root}>
       <div className={classes.superdiv}>
-        <form>
-            <div className={classes.labela}>
-            <p className={classes.tekst}>Image</p>
-            <GridListTile key={tile.img} className={classes.grid}> 
-            <CardMedia 
-            className={classes.cover}
-            onClick={handelClick}
-            image={tile.img}
-            title="image">
-                <GridListTileBar
-                className={classes.bar}
-                actionIcon={
-                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                  <AddAPhotoIcon/>
-                </IconButton>
-              }
-            />
-            </CardMedia>
-            </GridListTile>
-            </div>
 
+        <form>
             <div className={classes.labela}>
                 <p className={classes.tekst}>Name</p>
                 <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
             </div>
 
             <div className={classes.labela}>
-                <p className={classes.tekst}>Status</p>
-            <Autocomplete 
-              className={classes.textField}
-              id="combo-box-demo"
-              options={status}
-              getOptionLabel={option => option.title}
-              style={{ width: 300 }}
-              renderInput={params => <TextField style={InputStyle} {...params} variant="outlined" />}
-            />
+                <p className={classes.tekst}>Availability From</p>
+                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
+            </div>
+
+            <div className={classes.labela}>
+                <p className={classes.tekst}>Availability To</p>
+                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
             </div>
 
             <div className={classes.labela}>
                 <p className={classes.description}>Description</p>
-
-                
                 <TextField style={InputStyle}
                 className={classes.textField}
                 id="outlined-multiline-static"
@@ -173,15 +155,15 @@ function handelClick()
                 />
             </div>
             <div className={classes.labela}>
-            <Button style={buttonStyle} className={classes.buttonUpdate} color="inherit">Update basic info</Button>
-            <Button style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
+            <Button  onClick={handleClose} style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
+            <Button onClick={handleClose} style={buttonStyle} className={classes.buttonUpdate} color="inherit">Create role</Button>
             </div>
       </form>
       
     </div>
   </div>
   ))}
+</Dialog>
 </div>
-
   );
 }
