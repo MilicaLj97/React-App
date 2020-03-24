@@ -3,6 +3,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import AppsIcon from '@material-ui/icons/Apps';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import RoleList from './RoleList';
 
 
 const tileData = [
@@ -36,6 +37,14 @@ const tileData = [
       title: 'Games',
       url:'Games',
       tab: 'todo Games'
+      
+    },
+    {
+      id: 4,
+      icon:  <SportsEsportsIcon/>,
+      title: 'Roles',
+      url:'Roles',
+      tab: <RoleList/>,
       
     },
       
