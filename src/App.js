@@ -5,17 +5,12 @@ import UserPage from './Components/UserPage';
 import RoleList from './Components/RoleList';
 import Profile from './Components/Profile';
 
-
-
 function App() {
   return (
     
     <div className="App">
       
-      <Profile/>
-     
-
-      <RoleList/>
+      <Menu/>
 
     </div>
     
