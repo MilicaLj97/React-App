@@ -1,10 +1,13 @@
 import React from 'react';
+import 'date-fns';
 import { makeStyles } from '@material-ui/core/styles';
 import basicData from '../Data/basicData';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import DateFnsUtils from '@date-io/date-fns';
+import {KeyboardDatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -102,7 +105,6 @@ const buttonStyle = {
   
 };
 
-
 export default function TitlebarGridList() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -115,11 +117,23 @@ const handleClose = () => {
     setOpen(false);
   };
 
+const [selectedDate, setSelectedDate] = React.useState(new Date());
+
+const handleDateChange = date => {
+    setSelectedDate(date);
+};
+
+const [selectedDateTo, setSelectedDateTo] = React.useState(new Date());
+
+const handleDateChangeTo = date => {
+    setSelectedDateTo(date);
+};
+
   return (
     
 <div>
 <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Create new
+        Create new 
 </Button>
 <Dialog open={open} aria-labelledby="form-dialog-title">
 <DialogTitle id="form-dialog-title">Create new role</DialogTitle>
@@ -129,20 +143,42 @@ const handleClose = () => {
       <div className={classes.superdiv}>
 
         <form>
-            <div className={classes.labela}>
+            <div className={classes.labela} >
                 <p className={classes.tekst}>Name</p>
                 <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
             </div>
 
-            <div className={classes.labela}>
+            <MuiPickersUtilsProvider  className={classes.labela} utils={DateFnsUtils}>
                 <p className={classes.tekst}>Availability From</p>
-                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
-            </div>
+                <KeyboardDatePicker style={InputStyle} className={classes.textField}
+                disableToolbar
+                variant="inline"
+                format="MM/dd/yyyy"
+                margin="normal"
+                id="date-picker-inline"
+                value={selectedDate}
+                onChange={handleDateChange}
+                KeyboardButtonProps={{
+                'aria-label': 'change date',
+                 }}
+                />
+            </MuiPickersUtilsProvider >
 
-            <div className={classes.labela}>
+            <MuiPickersUtilsProvider  className={classes.labela} utils={DateFnsUtils}>
                 <p className={classes.tekst}>Availability To</p>
-                <TextField style={InputStyle} className={classes.textField} id="outlined-basic"  variant="outlined" />
-            </div>
+                <KeyboardDatePicker style={InputStyle} className={classes.textField}
+                disableToolbar
+                variant="inline"
+                format="MM/dd/yyyy"
+                margin="normal"
+                id="date-picker-inline"
+                value={selectedDateTo}
+                onChange={handleDateChangeTo}
+                KeyboardButtonProps={{
+                'aria-label': 'change date',
+                 }}
+                />
+            </MuiPickersUtilsProvider >
 
             <div className={classes.labela}>
                 <p className={classes.description}>Description</p>

@@ -6,8 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import roleData from '../Data/roleData';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
-import AppBar from '../Components/AppBar';
-import Footer from '../Components/Footer';
+import RolesAppBar from '../Components/RolesAppBar';
 import PageShowing from '../Components/PageShowing';
 
 
@@ -60,7 +59,7 @@ export default function TitlebarGridList() {
   return (
    
 <div>
-  <AppBar/>
+  <RolesAppBar/>
 {roleData.map(tile => (
 
     <div className={classes.root}>
