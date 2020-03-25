@@ -7,7 +7,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Popover from '@material-ui/core/Popover';
 import Button from '@material-ui/core/Button';
 
-import SubmitPage from './SubmitPage';
+import CreateRole from './CreateRole';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -108,10 +108,6 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          {/* {appbarData.map(bar => (
-          <Button aria-describedby={id} onClick={handleClick} className={classes.menuButton}>{bar.titleButton}</Button>
-        
-          ))} */}
           <Button aria-describedby={id} onClick={handleClick} className={classes.menuButton}>Options</Button>
         <Popover
         id={id}
@@ -127,7 +123,7 @@ export default function SearchAppBar() {
           horizontal: 'center',
         }}
       >
-        <SubmitPage/>
+        <CreateRole/>
         
         </Popover>
         </Toolbar>
