@@ -7,9 +7,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import appbarData from '../Data/appbarData';
 import Popover from '@material-ui/core/Popover';
 import Button from '@material-ui/core/Button';
-
+import { TabValueContext } from '../Helpers/tabContext';
 import SubmitPage from './SubmitPage';
-
+import CreateRole from './CreateRole';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -86,6 +86,9 @@ export default function SearchAppBar() {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
  
+  const {tabValue} = React.useContext(TabValueContext);
+  
+
   return (
     <div className={classes.root}>
       <AppBar position="static" >
@@ -128,8 +131,11 @@ export default function SearchAppBar() {
           horizontal: 'center',
         }}
       >
-        <SubmitPage/>
-        
+      
+      
+        {tabValue}
+
+
         </Popover>
         </Toolbar>
       </AppBar>

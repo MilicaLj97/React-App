@@ -10,6 +10,8 @@ import AppBar from '../Components/AppBar';
 import Footer from '../Components/Footer';
 import PageShowing from '../Components/PageShowing';
 
+
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex-inline',
@@ -53,6 +55,7 @@ const useStyles = makeStyles(theme => ({
  
 export default function TitlebarGridList() {
   const classes = useStyles();
+  
 
   return (
    
@@ -91,7 +94,7 @@ export default function TitlebarGridList() {
   </div>
   ))}
   <PageShowing/>
-  <Footer/>
+  
 </div>
   );
 }

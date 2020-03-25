@@ -8,7 +8,7 @@ import Divider from '@material-ui/core/Divider';
 
 import tileData from '../Data/tileData';
 import contextTabData from '../Data/contextTabData';
-
+import { TabValueContext } from '../Helpers/tabContext';
 import { TabContext } from '../Helpers/useContext';
 
 
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 export default function SimpleList() {
   const classes = useStyles();
   const {tab, setTab} = React.useContext(TabContext);
-  
+  const {tabValue, setTabValue} = React.useContext(TabValueContext);
   
 
   return (
@@ -47,7 +47,7 @@ export default function SimpleList() {
       <Divider />
 
       <List component="nav" aria-label="main mailbox folders">
-      {tileData.map(tile => (<ListItem onClick={(e)=>  {setTab(tile.tab)}} button key={tile.id} >
+      {tileData.map(tile => (<ListItem onClick={(e)=>  { setTab(tile.tab); setTabValue(tile.tabValue); }} button key={tile.id} >
           <ListItemIcon>
             {tile.icon}
           </ListItemIcon>

@@ -12,10 +12,8 @@ function App() {
     
     <div className="App">
       
-      <Profile/>
+      <Menu/>
      
-
-      <RoleList/>
 
     </div>
     

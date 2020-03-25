@@ -7,7 +7,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-
+import MemoryIcon from '@material-ui/icons/Memory';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
@@ -21,6 +21,9 @@ import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Card from '../Components/Card';
 import avatarData from '../Data/avatarData';
+import Divider from '@material-ui/core/Divider';
+import { Menu, Hidden } from '@material-ui/core';
+import Profile from './Profile';
 
 
 const drawerWidth = 240;
@@ -92,6 +95,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
+    
   },
   grow: {
     flexGrow: 1,
@@ -223,6 +227,7 @@ export default function MiniDrawer() {
     sessionStorage.setItem('myValueInLocalStorage', title);
   }
   
+  
   return (
  
     <div className={classes.root}>
@@ -298,12 +303,13 @@ export default function MiniDrawer() {
           <ListItemText primary={tile.title} />
           </ListItem>
           ))}
+          
         </List>
         
       </Drawer>
-      <main className={classes.content}>
+      <main className={classes.content} >
         <div className={classes.toolbar} />
-        <Card />
+        <Profile/>
       </main>
     </div>
   );

@@ -211,7 +211,7 @@ function handelClick()
                 />
             </div>
             <div className={classes.labela}>
-            <Button  onClick={handleClose} style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
+            <Button onClick={handleClose} style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
             <Button onClick={handleClose} style={buttonStyle} className={classes.buttonUpdate} color="inherit">Create user</Button>
             </div>
       </form>
