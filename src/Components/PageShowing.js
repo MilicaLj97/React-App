@@ -28,11 +28,12 @@ const useStyles = makeStyles(theme => ({
 
   },
   labela:{
-    marginLeft:1200,
+    marginLeft:1150,
     width:'50%',
+    marginBottom:'20px',
   },
   tekst:{
-      marginLeft:12,
+      marginLeft:0,
       marginTop: 2,
       marginBottom:2,
   },
