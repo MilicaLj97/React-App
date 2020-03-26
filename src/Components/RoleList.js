@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import roleData from '../Data/roleData';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
-import RolesAppBar from '../Components/RolesAppBar';
+import RolesAppBar from '../Components/AppBar';
 import PageShowing from '../Components/PageShowing';
 
 

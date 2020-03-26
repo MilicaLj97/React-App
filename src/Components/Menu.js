@@ -21,11 +21,8 @@ import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Card from '../Components/Card';
 import avatarData from '../Data/avatarData';
-import Divider from '@material-ui/core/Divider';
-import { Menu, Hidden } from '@material-ui/core';
-import Profile from './Profile';
 import Footer from '../Components/Footer';
-
+import MenuAppBar from '../Components/MenuAppBar';
 
 const drawerWidth = 240;
 
@@ -96,7 +93,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-    
+    float:'left',
   },
   grow: {
     flexGrow: 1,
@@ -232,7 +229,8 @@ export default function MiniDrawer() {
   return (
  
     <div className={classes.root}>
-      <CssBaseline />
+      
+      <CssBaseline/>
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
@@ -308,9 +306,12 @@ export default function MiniDrawer() {
         </List>
         
       </Drawer>
+     
       <main className={classes.content} >
-        <div className={classes.toolbar} />
+        <MenuAppBar/>
+        <Footer/>
       </main>
+     
     </div>
   );
 }

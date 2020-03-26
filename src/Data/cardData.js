@@ -8,7 +8,7 @@ const cardData = [
       img: Slika,
       title: 'Test 1',
       status: 'Aktivan',
-      details: 'Detalji test test test test test test test test test test test test test test test test test test test',
+      details: 'Detalji test test test test test test test test test test test test test test test test test ',
       logo: logo,
   
     },
@@ -17,7 +17,7 @@ const cardData = [
       img: Slika,
       title: 'Test 2',
       status: 'Aktivan',
-      details: 'Detalji test test test test test test test test test test test test test test test test test test test',
+      details: 'Detalji test test test test test test test test test test test test test test test test test ',
       
       
     },
@@ -26,7 +26,7 @@ const cardData = [
       img: Slika,
       title: 'Test 3',
       status: 'Neaktivan',
-      details: 'Detalji test test test test test test test test test test test test test test test test test test test',
+      details: 'Detalji test test test test test test test test test test test test test test test test test ',
       
       
     },
@@ -35,7 +35,7 @@ const cardData = [
       img: Slika,
       title: 'Test 4',
       status: 'Aktivan',
-      details: 'Detalji test test test test test test test test test test test test test test test test test test test',
+      details: 'Detalji test test test test test test test test test test test test test test test test test ',
       
     },
     

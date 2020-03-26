@@ -12,6 +12,8 @@ import CreateRole from './CreateRole';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    marginTop:65,
+    
   },
   menuButton: {
     marginLeft: 'auto',
@@ -22,7 +24,6 @@ const useStyles = makeStyles(theme => ({
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
-      
     },
   },
   search: {
@@ -108,7 +109,7 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <Button aria-describedby={id} onClick={handleClick} className={classes.menuButton}>Options</Button>
+          
         <Popover
         id={id}
         open={open}

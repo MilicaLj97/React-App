@@ -12,21 +12,24 @@ const useStyles = makeStyles(theme => ({
     position: 'fixed',
     width: '100%',
     height: 52,   
-    display:'flex',    
+    display:'flex',   
     //width: '32.1%',
     //textAlign:' right',
   },
-  tekst:{
-    marginLeft: 15,
-    fontSize: 21,
-    color: 'white!important'
-  }
 }));
 
 const BarStyle = {
-
+  float:'right',
   textAlign:' right',
-  marginLeft: 778,
+  marginLeft: 780,
+  position:'fixed',
+};
+const ContactStyle = {
+  float:'right',
+  textAlign:' right',
+  right:0,
+  marginLeft:'-250px',
+  position:'fixed',
 };
 
 export default function SearchAppBar() {
@@ -42,7 +45,7 @@ export default function SearchAppBar() {
           <a href="https://www.dtc.rs"> <p style={BarStyle}>Copyright info</p> </a>
       </div> 
       <div>
-          <a href="https://www.dtc.rs"> <img border="1" alt="DTC" src={ContactImg} width="100" style={BarStyle}/> </a>
+          <a href="https://www.dtc.rs"> <img border="1" alt="DTC" src={ContactImg} width="100" style={ContactStyle}/> </a>
       </div>
     </div>
    
