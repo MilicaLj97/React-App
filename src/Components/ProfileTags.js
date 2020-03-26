@@ -14,6 +14,7 @@ import TextField from '@material-ui/core/TextField';
 import Tooltip from '@material-ui/core/Tooltip';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import InputBase from '@material-ui/core/InputBase';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -106,7 +107,7 @@ export default function Chips() {
           horizontal: 'center',
         }}
       >
-        
+        <InputBase></InputBase>
           <Button onClick={handleClose} color="primary" style={buttonStyle} >
             <EditRoundedIcon/>Rename
           </Button>
