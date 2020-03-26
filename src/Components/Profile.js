@@ -5,8 +5,8 @@ import ProfileCard from './ProfileCard';
 import SimpleList from './ProfileList';
 import ProfileTags from './ProfileTags';
 import VerticalTabs from './ProfileTabs';
-import { TabContext } from '../Helpers/useContext';
-import { TabValueContext } from '../Helpers/tabContext';
+
+import { TabContext, TabValueContext } from '../Helpers/tabContext';
 
 
 

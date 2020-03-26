@@ -8,8 +8,8 @@ import Divider from '@material-ui/core/Divider';
 
 import tileData from '../Data/tileData';
 import contextTabData from '../Data/contextTabData';
-import { TabValueContext } from '../Helpers/tabContext';
-import { TabContext } from '../Helpers/useContext';
+import { TabContext, TabValueContext } from '../Helpers/tabContext';
+
 
 
 const useStyles = makeStyles(theme => ({
