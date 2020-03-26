@@ -8,7 +8,6 @@ import cardData from '../Data/cardData';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import AppBar from '../Components/AppBar';
-import Footer from '../Components/Footer';
 import PageShowing from '../Components/PageShowing';
 
 const useStyles = makeStyles(theme => ({
@@ -20,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
   superdiv: {
     display: 'flex',
-    width: 750,
+    width: 'auto',
     height: 155,
     boxShadow:'8px 8px 5px lightgrey', 
   },
@@ -31,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flex: '1 0 auto',
-    width: 500,
+    width: 320,
   },
   cover: {
     width: 151,
