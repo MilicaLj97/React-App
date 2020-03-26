@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft:1150,
     width:'50%',
     marginBottom:'20px',
+    marginRight:50,
   },
   tekst:{
       marginLeft:0,

@@ -85,7 +85,7 @@ export default function Chips() {
           </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClickOpen} color="primary">
+          <Button onClick={handleClose} color="primary">
             OK
           </Button>
           <Button onClick={handleClose} color="primary">
