@@ -97,7 +97,6 @@ export default function TitlebarGridList() {
   
   ))}
   <PageShowing/>
-  <Footer/>
 </div>
   );
 }

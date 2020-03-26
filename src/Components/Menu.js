@@ -309,7 +309,6 @@ export default function MiniDrawer() {
       </Drawer>
       <main className={classes.content} >
         <div className={classes.toolbar} />
-        <Profile/>
       </main>
     </div>
   );
