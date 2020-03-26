@@ -24,6 +24,7 @@ import avatarData from '../Data/avatarData';
 import Divider from '@material-ui/core/Divider';
 import { Menu, Hidden } from '@material-ui/core';
 import Profile from './Profile';
+import Footer from '../Components/Footer';
 
 
 const drawerWidth = 240;

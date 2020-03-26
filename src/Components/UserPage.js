@@ -19,7 +19,6 @@ const useStyles = makeStyles(theme => ({
     float: 'left',
     padding: 30,
     paddingTop:5,
-    overflow: 'hidden',
     //marginLeft: 50,
     width: '70%',
   },
