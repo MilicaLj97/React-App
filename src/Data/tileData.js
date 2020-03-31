@@ -6,6 +6,7 @@ import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 import RoleList from '../Components/RoleList';
 import CreateRole from '../Components/CreateRole';
 import Card from '../Components/Card';
+import UserList from '../Components/UserList';
 import UserPage from '../Components/UserPage';
 import SubmitPage from '../Components/SubmitPage';
 const tileData = [
@@ -17,14 +18,13 @@ const tileData = [
         tab: 'todo Home',
         tabValue: 'todo',
         
-        
     },
     {
       id: 1,
       icon: <AccessibilityNewIcon/>,
       title: 'Users',
       url: 'Users',
-      tab: <Card/>,
+      tab: <UserList/>,
       tabValue: <UserPage/>,
       
     },
