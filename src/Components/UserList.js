@@ -2,14 +2,11 @@ import React,{useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import AppBar from '../Components/AppBar';
 import userData from '../Data/userData';
-import contextTabData from '../Data/contextTabData';
 import { TabContext, TabValueContext } from '../Helpers/tabContext';
-import CardMedia from '@material-ui/core/CardMedia';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import PageShowing from '../Components/PageShowing';
@@ -22,6 +19,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
+
 }));
 
 
