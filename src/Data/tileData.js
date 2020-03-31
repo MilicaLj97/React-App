@@ -8,6 +8,7 @@ import CreateRole from '../Components/CreateRole';
 import Card from '../Components/Card';
 import UserPage from '../Components/UserPage';
 import SubmitPage from '../Components/SubmitPage';
+import TodoList from '../Components/TodoList';
 const tileData = [
     {
         id: 0,
@@ -33,7 +34,7 @@ const tileData = [
       icon:  <AppsIcon/>,
       title: 'Projects',
       url:'Projects',
-      tab: 'todo Skills',
+      tab: <TodoList/>,
       tabValue: <SubmitPage/>,
     },
     {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
@@ -54,41 +54,45 @@ const useStyles = makeStyles(theme => ({
  
 export default function TitlebarGridList() {
   const classes = useStyles();
-  
+  const defaultList = roleData;
 
+  const [list, updateList] = useState(defaultList);
+
+  const handleRemoveItem = (e) => {
+   const Name = e.target.parentNode.getAttribute("Name");
+    updateList(list.filter(tile => tile.Name !== Name));
+  };
+  
   return (
    
 <div>
-  <RolesAppBar/>
-{roleData.map(tile => (
+<RolesAppBar/>
+  {roleData.map(tile => (
 
-    <div className={classes.root}>
-      <div className={classes.superdiv}>
-      
-    <div className={classes.details}>
+    <div className={classes.root} >
+      <div className={classes.superdiv} Name={tile.Name}> 
+        <div className={classes.details} >
 
-      <CardContent className={classes.content}>
-        <Typography component="h5" variant="h5">
-          {tile.Name}
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-         From: {tile.AvailabilityFrom} To: {tile.AvailabilityTo }
-        </Typography>
-        <Typography variant="subtitle1" >
-          {tile.details}
-        </Typography>
-      </CardContent>
+          <CardContent className={classes.content}>
+            <Typography component="h5" variant="h5">
+              {tile.Name}
+            </Typography>
+            <Typography variant="subtitle1" color="textSecondary">
+              From: {tile.AvailabilityFrom} To: {tile.AvailabilityTo }
+            </Typography>
+            <Typography variant="subtitle1" >
+              {tile.details}
+            </Typography>
+          </CardContent>
       </div>
       <div className={classes.controls}>
         <IconButton aria-label="previous" >
           <EditRoundedIcon className={classes.icon}/>
         </IconButton>
-        <IconButton aria-label="play/pause">
+        <IconButton onClick={handleRemoveItem}>
           <DeleteRoundedIcon className={classes.icon}/>
         </IconButton>
-        
       </div>
-    
     </div>
   </div>
   ))}
