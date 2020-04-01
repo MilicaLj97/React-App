@@ -54,14 +54,7 @@ const useStyles = makeStyles(theme => ({
  
 export default function TitlebarGridList() {
   const classes = useStyles();
-  const defaultList = roleData;
-
-  const [list, updateList] = useState(defaultList);
-
-  const handleRemoveItem = (e) => {
-   const Name = e.target.parentNode.getAttribute("Name");
-    updateList(list.filter(tile => tile.Name !== Name));
-  };
+ 
   
   return (
    
@@ -70,7 +63,7 @@ export default function TitlebarGridList() {
   {roleData.map(tile => (
 
     <div className={classes.root} >
-      <div className={classes.superdiv} Name={tile.Name}> 
+      <div className={classes.superdiv}> 
         <div className={classes.details} >
 
           <CardContent className={classes.content}>
@@ -89,7 +82,7 @@ export default function TitlebarGridList() {
         <IconButton aria-label="previous" >
           <EditRoundedIcon className={classes.icon}/>
         </IconButton>
-        <IconButton onClick={handleRemoveItem}>
+        <IconButton>
           <DeleteRoundedIcon className={classes.icon}/>
         </IconButton>
       </div>
