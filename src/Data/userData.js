@@ -1,5 +1,5 @@
 import React from 'react';
-import RoleList from '../Components/RoleList';
+import RoleList from '../Components/RoleCard';
 import CreateRole from '../Components/CreateRole';
 import UserPage from '../Components/UserPage';
 import SubmitPage from '../Components/SubmitPage';
@@ -15,7 +15,7 @@ const userData = [
         status: 'Aktivan',
         details: 'Detalji test test test test test test test test test test test test test test test test test ',
         url: 'Home',
-        tab: 'todo Home',
+        tab: 'todo',
         tabValue: 'todo',
         
     },
@@ -26,8 +26,8 @@ const userData = [
       status: 'Aktivan',
       details: 'Detalji test test test test test test test test test test test test test test test test test ',
       url: 'Users',
-      tab: 'todo User',
-      tabValue: <UserPage/>,
+      tab: 'todo',
+      tabValue: 'todo',
       
     },
     {
@@ -36,10 +36,9 @@ const userData = [
       title: 'User 3',
       status: 'Aktivan',
       details: 'Detalji test test test test test test test test test test test test test test test test test ',
-      title: 'User 3',
-      url:'Projects',
-      tab: 'todo Skills',
-      tabValue: <SubmitPage/>,
+      url:'Users',
+      tab: 'todo ',
+      tabValue: 'todo',
     },
     {
       id: 3,
@@ -47,10 +46,9 @@ const userData = [
       title: 'User 4',
       status: 'Aktivan',
       details: 'Detalji test test test test test test test test test test test test test test test test test ',
-      title: 'User 4',
-      url:'Roles',
-      tab: <RoleList/>,
-      tabValue: <CreateRole/>,
+      url:'User',
+      tab: 'todo',
+      tabValue: 'todo',
       
     },
     

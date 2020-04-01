@@ -1,99 +1,62 @@
-import React from 'react';
+import React,{useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CardContent from '@material-ui/core/CardContent';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import AppBar from './AppBar';
 import roleData from '../Data/roleData';
+import { TabContext, TabValueContext } from '../Helpers/tabContext';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import PageShowing from './PageShowing';
+import IconButton from '@material-ui/core/IconButton';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
-import RolesAppBar from '../Components/AppBar';
-import PageShowing from '../Components/PageShowing';
-
-
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex-inline',
-    float: 'left',
-    padding: 10,
-    
+    width: '100%',
+    backgroundColor: theme.palette.background.paper,
   },
-  superdiv: {
-    display: 'flex',
-    width: 'auto',
-    height: 155,
-    boxShadow:'8px 8px 5px lightgrey', 
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-    
-  },
-  content: {
-    flex: '1 0 auto',
-    width: 500,
-  },
-  cover: {
-    width: 151,
-  },
-  controls: {
 
-    display: 'flex',
-    justifyContent: 'flex-end',
-    paddingLeft: theme.spacing(1),
-    //paddingBottom: theme.spacing(1),
-    height:'50px!important',
-    marginTop: 'auto',
-  },
-  playIcon: {
-    height: 38,
-    width: 38,
-  },
-})); 
+}));
 
- 
-export default function TitlebarGridList() {
+
+
+export default function SimpleList() {
   const classes = useStyles();
+  const {tab, setTab} = React.useContext(TabContext);
+  const {tabValue, setTabValue} = React.useContext(TabValueContext);
   
 
   return (
-   
-<div>
-  <RolesAppBar/>
-{roleData.map(tile => (
-
     <div className={classes.root}>
-      <div className={classes.superdiv}>
-      
-    <div className={classes.details}>
+      <AppBar/>
 
-      <CardContent className={classes.content}>
-        <Typography component="h5" variant="h5">
-          {tile.Name}
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-         From: {tile.AvailabilityFrom} To: {tile.AvailabilityTo }
-        </Typography>
-        <Typography variant="subtitle1" >
-          {tile.details}
-        </Typography>
-      </CardContent>
-      </div>
-      <div className={classes.controls}>
-        <IconButton aria-label="previous" >
-          <EditRoundedIcon className={classes.icon}/>
-        </IconButton>
-        <IconButton aria-label="play/pause">
-          <DeleteRoundedIcon className={classes.icon}/>
-        </IconButton>
+      <Divider />
+
+      <List component="nav" aria-label="main mailbox folders">
+      {roleData.map(tile => (<ListItem onClick={(e)=>  { setTab(tile.tab); setTabValue(tile.tabValue); }} button key={tile.id} >
+      <ListItemAvatar>
+          <Avatar src = {tile.img}/>
+          </ListItemAvatar>
+          <ListItemText primary={tile.title}/>
+          <ListItemText primary={tile.AvailabilityFrom} />
+          <ListItemText primary={tile.AvailabilityTo} />
+          <ListItemText primary={tile.details}/>
+          <IconButton aria-label="previous" >
+            <EditRoundedIcon className={classes.icon}/>
+          </IconButton>
+          <IconButton aria-label="play/pause">
+            <DeleteRoundedIcon className={classes.icon}/>
+          </IconButton>
+          </ListItem>
         
-      </div>
-    
+      ))}
+      <Divider />
+      </List>
+      <PageShowing/>
     </div>
-  </div>
-  ))}
-  <PageShowing/>
-  
-</div>
   );
 }

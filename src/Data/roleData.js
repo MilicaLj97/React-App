@@ -1,42 +1,61 @@
-import logo from '../slike/dtc.jpg';
+import React from 'react';
+import RoleList from '../Components/RoleCard';
+import CreateRole from '../Components/CreateRole';
+import UserPage from '../Components/UserPage';
+import SubmitPage from '../Components/SubmitPage';
+import Slika from '../slike/dtc.jpg';
 
 const roleData = [
     {
+        id: 0,
+        img:  Slika,
+        title: 'Role 1',
+        AvailabilityFrom: '20.03.2020.',
+        AvailabilityTo: '21.07.2020.',
+        details: 'Detalji test test test test test test test test test test test test test test test test test ',
+        url: '',
+        tab: 'todo ',
+        tabValue: 'todo',
+        
+    },
+    {
       id: 1,
-      Name: 'Name 1',
+      img:  Slika,
+      title: 'Role 2',
       AvailabilityFrom: '20.03.2020.',
       AvailabilityTo: '21.07.2020.',
-      details: 'Detalji test test test test test test test test test test test test test test test test test test test',
-      logo: logo,
-  
+      details: 'Detalji test test test test test test test test test test test test test test test test test ',
+      url: '',
+      tab: 'todo',
+      tabValue: 'todo',
+      
     },
     {
       id: 2,
-      Name: 'Name 2',
+      img:  Slika,
+      title: 'Role 3',
       AvailabilityFrom: '20.03.2020.',
       AvailabilityTo: '21.07.2020.',
-      details: 'Detalji test test test test test test test test test test test test test test test test test test test',
-      
-      
-    },
-   {
-    id: 3,
-      Name: 'Name 3',
-      AvailabilityFrom: '20.03.2020.',
-      AvailabilityTo: '21.07.2020.',
-      details: 'Detalji test test test test test test test test test test test test test test test test test test test',
-      
-      
+      details: 'Detalji test test test test test test test test test test test test test test test test test ',
+      url:'',
+      tab: 'todo ',
+      tabValue: 'todo',
     },
     {
-      id: 4,
-      Name: 'Name 4',
+      id: 3,
+      img:  Slika,
+      title: 'Role 4',
       AvailabilityFrom: '20.03.2020.',
       AvailabilityTo: '21.07.2020.',
-      details: 'Detalji test test test test test test test test test test test test test test test test test test test',
+      details: 'Detalji test test test test test test test test test test test test test test test test test ',
+      url:'',
+      tab: 'todo',
+      tabValue: 'todo',
       
     },
-
+    
+      
   ];
   
   export default roleData;
+
