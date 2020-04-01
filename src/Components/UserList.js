@@ -13,6 +13,7 @@ import PageShowing from '../Components/PageShowing';
 import IconButton from '@material-ui/core/IconButton';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import { Dialog } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,7 +29,27 @@ export default function SimpleList() {
   const classes = useStyles();
   const {tab, setTab} = React.useContext(TabContext);
   const {tabValue, setTabValue} = React.useContext(TabValueContext);
+  const defaultList = userData;
+
+  const [list, updateList] = useState(userData);
   
+
+  const handleRemoveItem = (e) => {
+   var id = parseInt(e.target.parentNode.getAttribute("name"));
+   if(id>0)
+    {
+      if (window.confirm("Are you sure you want to remove this item?"))
+      {
+        updateList(list.filter(tile => tile.id !== id));
+      }
+      else{}
+      
+    
+    }
+    
+   
+    
+  };
 
   return (
     <div className={classes.root}>
@@ -37,7 +58,8 @@ export default function SimpleList() {
       <Divider />
 
       <List component="nav" aria-label="main mailbox folders">
-      {userData.map(tile => (<ListItem onClick={(e)=>  { setTab(tile.tab); setTabValue(tile.tabValue); }} button key={tile.id} >
+      {list.map(tile => (
+      <ListItem button key={tile.id} >
       <ListItemAvatar>
           <Avatar src = {tile.img}/>
           </ListItemAvatar>
@@ -48,7 +70,7 @@ export default function SimpleList() {
             <EditRoundedIcon className={classes.icon}/>
           </IconButton>
           <IconButton aria-label="play/pause">
-            <DeleteRoundedIcon className={classes.icon}/>
+            <DeleteRoundedIcon name={tile.id} onClick={handleRemoveItem} className={classes.icon} />
           </IconButton>
           </ListItem>
         
