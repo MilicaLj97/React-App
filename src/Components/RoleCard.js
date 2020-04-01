@@ -69,7 +69,7 @@ export default function TitlebarGridList() {
 
       <CardContent className={classes.content}>
         <Typography component="h5" variant="h5">
-          {tile.Name}
+          {tile.title}
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
          From: {tile.AvailabilityFrom} To: {tile.AvailabilityTo }
