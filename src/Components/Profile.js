@@ -33,8 +33,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor:'white!important',
     boxShadow:'8px 8px 5px lightgrey', 
     width:'69%',
+    height:780,
     padding:20,
-    overflow: 'hidden',
+    overflow: 'auto',
   },
   card:{
     width:'100%',
