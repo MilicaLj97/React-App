@@ -37,8 +37,9 @@ export default function SimpleList() {
       <Divider />
 
       <List component="nav" aria-label="main mailbox folders">
-      {roleData.map(tile => (<ListItem onClick={(e)=>  { setTab(tile.tab); setTabValue(tile.tabValue); }} button key={tile.id} >
-      <ListItemAvatar>
+      {roleData.map(tile => (
+        <ListItem button key={tile.id} >
+          <ListItemAvatar>
           <Avatar src = {tile.img}/>
           </ListItemAvatar>
           <ListItemText primary={tile.title}/>
@@ -51,8 +52,7 @@ export default function SimpleList() {
           <IconButton aria-label="play/pause">
             <DeleteRoundedIcon className={classes.icon}/>
           </IconButton>
-          </ListItem>
-        
+        </ListItem>
       ))}
       <Divider />
       </List>
