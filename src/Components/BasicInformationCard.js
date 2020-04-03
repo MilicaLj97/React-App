@@ -112,12 +112,9 @@ function handelClick()
 {
     alert("slika");
 }
-
-
   return (
     
 <div>
-
 {basicData.map(tile => (
 
     <div className={classes.root}>

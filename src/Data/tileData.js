@@ -3,24 +3,24 @@ import HomeIcon from '@material-ui/icons/Home';
 import AppsIcon from '@material-ui/icons/Apps';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
-import RoleCard from '../Components/RoleCard';
 import CreateRole from '../Components/CreateRole';
-import Card from '../Components/Card';
 import UserList from '../Components/UserList';
 import RoleList from '../Components/RoleList';
 import UserPage from '../Components/UserPage';
 import SubmitPage from '../Components/SubmitPage';
 import TodoList from '../Components/TodoList';
+import ModifyRole from '../Components/ModifyRole';
+import ModifyUser from '../Components/ModifyUser';
 
 const tileData = [
     {
         id: 0,
-        icon:  <HomeIcon/>,
+        icon:  <HomeIcon/>, 
         title: 'Home',
         url: 'Home',
         tab: 'todo Home',
         tabValue: 'todo',
-        
+        cardValue: <ModifyRole/>,
     },
     {
       id: 1,
@@ -29,7 +29,7 @@ const tileData = [
       url: 'Users',
       tab: <UserList/>,
       tabValue: <UserPage/>,
-      
+      cardValue: <ModifyUser/>,
     },
     {
       id: 2,
@@ -38,6 +38,8 @@ const tileData = [
       url:'Projects',
       tab: <TodoList/>,
       tabValue: <SubmitPage/>,
+      cardValue: <ModifyRole/>,
+      
     },
     {
       id: 3,
@@ -46,7 +48,7 @@ const tileData = [
       url:'Roles',
       tab: <RoleList/>,
       tabValue: <CreateRole/>,
-      
+      cardValue: <ModifyRole/>,
     },
     
       

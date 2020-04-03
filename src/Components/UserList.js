@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import AppBar from '../Components/AppBar';
 import userData from '../Data/userData';
-import { TabContext, TabValueContext } from '../Helpers/tabContext';
+import { TabContext, TabValueContext, CardContext } from '../Helpers/tabContext';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import PageShowing from '../Components/PageShowing';
@@ -14,6 +14,8 @@ import IconButton from '@material-ui/core/IconButton';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import { Dialog } from '@material-ui/core';
+import Popover from '@material-ui/core/Popover';
+import cardData from '../Data/cardData';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,26 +32,31 @@ export default function SimpleList() {
   const {tab, setTab} = React.useContext(TabContext);
   const {tabValue, setTabValue} = React.useContext(TabValueContext);
   const defaultList = userData;
-
+  const {cardValue, setCardValue} = React.useContext(CardContext);
   const [list, updateList] = useState(userData);
-  
 
-  const handleRemoveItem = (e) => {
-   var id = parseInt(e.target.parentNode.getAttribute("name"));
-   if(id>0)
-    {
+  
+  function handleRemoveItem(id) {
+  
       if (window.confirm("Are you sure you want to remove this item?"))
       {
         updateList(list.filter(tile => tile.id !== id));
       }
       else{}
       
-    
-    }
-    
-   
-    
   };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   return (
     <div className={classes.root}>
@@ -66,11 +73,32 @@ export default function SimpleList() {
           <ListItemText primary={tile.title}/>
           <ListItemText primary={tile.status} />
           <ListItemText primary={tile.details}/>
-          <IconButton aria-label="previous" >
+          <IconButton aria-label="previous" onClick={handleClick}>
             <EditRoundedIcon className={classes.icon}/>
           </IconButton>
-          <IconButton aria-label="play/pause">
-            <DeleteRoundedIcon name={tile.id} onClick={handleRemoveItem} className={classes.icon} />
+
+          <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+      
+      
+        {cardValue}
+
+
+        </Popover>
+          <IconButton aria-label="play/pause" onClick={(e)=>  {handleRemoveItem(tile.id)}}>
+            <DeleteRoundedIcon className={classes.icon} />
           </IconButton>
           </ListItem>
         

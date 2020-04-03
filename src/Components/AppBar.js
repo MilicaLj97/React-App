@@ -7,8 +7,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import Popover from '@material-ui/core/Popover';
 import Button from '@material-ui/core/Button';
 import { TabValueContext } from '../Helpers/tabContext';
-import SubmitPage from './SubmitPage';
-import CreateRole from './CreateRole';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -92,17 +90,16 @@ export default function SearchAppBar() {
     <div className={classes.root}>
       <AppBar position="static" >
         <Toolbar className={classes.bar}>
-          
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase onKeyDown={ (e) =>{if(e.key === 'Enter')
-                {
-                  alert("Enter search");
-                }
-              }
-           }
+                                           {
+                                                alert("Enter search");
+                                           }
+                                          }
+                                 }
               placeholder="Search…"
               classes={{
                 root: classes.inputRoot,
@@ -115,11 +112,10 @@ export default function SearchAppBar() {
           <Button aria-describedby={id} onClick={handleClick} className={classes.menuButton}>{bar.titleButton}</Button>
         
           ))} */}
-          <Button aria-describedby={id} onClick={handleClick} className={classes.menuButton}>Options</Button>
-        <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
+          <Button aria-describedby={id} onClick={handleClick} className={classes.menuButton}>
+            Options
+          </Button>
+        <Popover id={id} open={open} anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
           vertical: 'bottom',
@@ -128,12 +124,9 @@ export default function SearchAppBar() {
         transformOrigin={{
           vertical: 'top',
           horizontal: 'center',
-        }}
-      >
-      
+        }}>
       
         {tabValue}
-
 
         </Popover>
         </Toolbar>

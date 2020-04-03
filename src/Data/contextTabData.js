@@ -9,7 +9,6 @@ const contextTabData = [
         id: 0,
         icon:  <PermIdentityOutlinedIcon />,
         title: 'Basic Information',
-        
         tab: <BasicInformationCard/>,
         
         
@@ -18,7 +17,6 @@ const contextTabData = [
       id: 1,
       icon: <VpnKeyOutlinedIcon />,
       title: 'Password Management',
-      
       tab: 'todo Password Management',
       
     },

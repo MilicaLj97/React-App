@@ -107,11 +107,11 @@ const buttonStyle = {
 
 export default function TitlebarGridList() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
-const handleClickOpen = () => {
-    setOpen(true);
-  };
+// const handleClickOpen = () => {
+//     setOpen(true);
+//   };
 
 const handleClose = () => {
     setOpen(false);
@@ -132,9 +132,9 @@ const handleDateChangeTo = date => {
   return (
     
 <div>
-<Button variant="outlined" color="primary" onClick={handleClickOpen}>
+{/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Modify role 
-</Button>
+</Button> */}
 <Dialog open={open} aria-labelledby="form-dialog-title">
 <DialogTitle id="form-dialog-title">Modify role</DialogTitle>
 {basicData.map(tile => (

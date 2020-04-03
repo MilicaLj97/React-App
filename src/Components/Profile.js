@@ -6,7 +6,7 @@ import SimpleList from './ProfileList';
 import ProfileTags from './ProfileTags';
 import VerticalTabs from './ProfileTabs';
 
-import { TabContext, TabValueContext } from '../Helpers/tabContext';
+import { TabContext, TabValueContext, CardContext } from '../Helpers/tabContext';
 
 
 
@@ -52,12 +52,14 @@ function Profile() {
 
   const [tab, setTab] = useState(null);
   const [tabValue, setTabValue] = useState(null);
+  const [cardValue, setCardValue] = useState(null);
   const classes = useStyles();
   
   
     return (
     <TabContext.Provider value={{tab, setTab}}>
     <TabValueContext.Provider value={{tabValue, setTabValue}}>
+    <CardContext.Provider value={{cardValue, setCardValue}}>
       <div className="Profile" >
      
      <ProfileHeader/>
@@ -72,6 +74,7 @@ function Profile() {
        </div>
        
      </div>
+     </CardContext.Provider>
      </TabValueContext.Provider>
     </TabContext.Provider>
     

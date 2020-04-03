@@ -4,6 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import profileCardData from '../Data/profileCardData';
+import { CardContext } from '../Helpers/tabContext';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,6 +39,8 @@ const CardStyle = {
 };
 export default function TitlebarGridList() {
   const classes = useStyles();
+  const {cardValue, setCardValue} = React.useContext(CardContext); 
+
 
   return (
  
@@ -55,13 +58,13 @@ export default function TitlebarGridList() {
 
       <CardContent className={classes.content} style={CardStyle}>
         <Typography component="h5" variant="h5">
-          {tile.title}
+          {/* {tile.title} */}title
         </Typography>
         <Typography variant="subtitle1" color="textSecondary">
-          {tile.status}
+          {/* {tile.status} */}status
         </Typography>
         <Typography variant="subtitle1" >
-          {tile.details}
+          {/* {tile.details} */}details
         </Typography>
       </CardContent>
       </div>
