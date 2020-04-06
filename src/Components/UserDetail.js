@@ -121,8 +121,7 @@ export default function TitlebarGrid() {
         </div>
       </div>
         <div className={classes.labela}>
-            <Button  onClick={handleClose} style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
-            <Button onClick={handleClose} style={buttonStyle} className={classes.buttonUpdate} color="inherit">Create project</Button>
+            <Button  onClick={handleClose} style={buttonStyle} className={classes.buttonCancel} color="inherit">Close</Button>
         </div>
     </div>
     
