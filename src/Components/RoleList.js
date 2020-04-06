@@ -16,13 +16,16 @@ import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import Popover from '@material-ui/core/Popover';
 import cardData from '../Data/cardData';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    backgroundColor: theme.palette.background.paper,
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
   },
-
 }));
 
 
@@ -36,14 +39,24 @@ export default function SimpleList() {
   const defaultList = roleData;
 
   const [list, updateList] = useState(defaultList);
+  const [openSnack, setOpenSnack] = React.useState(false);
+  const [severity, setSeverity] = useState('');
+  const [snack, setSnack] = useState('');
   
   function handleRemoveItem(id) {
   
       if (window.confirm("Are you sure you want to remove this item?"))
       {
         updateList(list.filter(tile => tile.id !== id));
+        setOpenSnack(true);
+        setSeverity("success");
+        setSnack("Remove successful");
       }
-      else{}
+      else{
+        setOpenSnack(true);
+        setSeverity("error");
+        setSnack("Remove cancelled");
+      }
       
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -58,6 +71,23 @@ export default function SimpleList() {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+  
+
+  const handleOpenSnack = () => {
+    setOpenSnack(true);
+  };
+
+  const handleCloseSnack = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenSnack(false);
+  };
 
   return (
     <div className={classes.root}>
@@ -106,6 +136,11 @@ export default function SimpleList() {
       <Divider />
       </List>
       <PageShowing/>
+      <Snackbar open={openSnack} autoHideDuration={3000} onClose={handleCloseSnack}>
+        <Alert onClose={handleCloseSnack} severity={severity}>
+          {snack}
+        </Alert>
+      </Snackbar>
 
     </div>
   );
