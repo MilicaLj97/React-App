@@ -18,8 +18,7 @@ const useStyles = makeStyles(theme => ({
     superdiv: {
       display: 'flex',
       width: 'auto',
-      height: 155,
-      boxShadow:'8px 8px 5px lightgrey', 
+      height: 155, 
     },
     details: {
       display: 'flex',
@@ -37,8 +36,30 @@ const useStyles = makeStyles(theme => ({
       height: 38,
       width: 38,
     },
+    labela:{
+  
+        width:'50%',
+    },
+    buttonUpdate:{
+        backgroundColor:'#e4100b',
+        marginLeft:'10px',
+        marginTop:20,
+        marginBottom:10,
+      },
+      buttonCancel:{
+        backgroundColor:'grey',
+        marginTop:20,
+        marginBottom:10,
+        marginLeft:15,
+      },
   })); 
-
+  const InputStyle = {
+    width: 300, 
+  };
+  const buttonStyle = {
+    textTransform: 'none',
+    
+  };
 
 
 export default function TitlebarGrid() {
@@ -84,9 +105,11 @@ export default function TitlebarGrid() {
           </Typography>
         </CardContent>
         </div>
-        
-      
       </div>
+        <div className={classes.labela}>
+            <Button  onClick={handleClose} style={buttonStyle} className={classes.buttonCancel} color="inherit">Cancel</Button>
+            <Button onClick={handleClose} style={buttonStyle} className={classes.buttonUpdate} color="inherit">Create project</Button>
+        </div>
     </div>
     
     ))}
