@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import userData from '../Data/userData';
 import Dialog from '@material-ui/core/Dialog';
@@ -65,24 +65,38 @@ const useStyles = makeStyles(theme => ({
 export default function TitlebarGrid() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
-
-    const handleClickOpen = () => {
+    const detailState = parseInt(sessionStorage.getItem("detailState"));
+    
+  
+    const [list, updateList] = useState(userData);
+    
+    const handleClickOpen=()=> {
+      
         setOpen(true);
+        
       };
     
     const handleClose = () => {
         setOpen(false);
       };
+      
+    function handleDetail(id)
+    {
+      updateList(list.filter(item => item.id === id));
+    }
 
+      
     return (
      
   <div>
-    <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+  
+    <Button variant="outlined" color="primary" onClick={(e)=>  { handleClickOpen(); handleDetail(detailState);}}>
         Details
     </Button>
+  
     <Dialog open={open} aria-labelledby="form-dialog-title">
     <DialogTitle id="form-dialog-title">Details</DialogTitle>
-  {userData.map(tile => (
+  {list.map(tile => (
   
       <div className={classes.root}>
         <div className={classes.superdiv}>

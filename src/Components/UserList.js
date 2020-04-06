@@ -29,9 +29,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleList() {
   const classes = useStyles();
-  const {tab, setTab} = React.useContext(TabContext);
-  const {tabValue, setTabValue} = React.useContext(TabValueContext);
-  const defaultList = userData;
   const {cardValue, setCardValue} = React.useContext(CardContext);
   const [list, updateList] = useState(userData);
 
@@ -47,9 +44,10 @@ export default function SimpleList() {
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
-  };
+  const handleClick = (id) => {
+    setAnchorEl(2);
+    sessionStorage.setItem("detailState", id );
+  };  
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -57,6 +55,9 @@ export default function SimpleList() {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
+
+    
+  
 
   return (
     <div className={classes.root}>
@@ -66,14 +67,14 @@ export default function SimpleList() {
 
       <List component="nav" aria-label="main mailbox folders">
       {list.map(tile => (
-      <ListItem button key={tile.id} >
+      <ListItem button key={tile.id}>
       <ListItemAvatar>
           <Avatar src = {tile.img}/>
           </ListItemAvatar>
           <ListItemText primary={tile.title}/>
           <ListItemText primary={tile.status} />
           <ListItemText primary={tile.details}/>
-          <IconButton aria-label="previous" onClick={handleClick}>
+          <IconButton aria-label="previous" onClick={ (e) => handleClick(tile.id)}>
             <EditRoundedIcon className={classes.icon}/>
           </IconButton>
 
@@ -100,6 +101,7 @@ export default function SimpleList() {
           <IconButton aria-label="play/pause" onClick={(e)=>  {handleRemoveItem(tile.id)}}>
             <DeleteRoundedIcon className={classes.icon} />
           </IconButton>
+          
           </ListItem>
         
       ))}

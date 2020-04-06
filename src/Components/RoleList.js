@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import AppBar from './AppBar';
 import roleData from '../Data/roleData';
-import { TabContext, TabValueContext, CardContext } from '../Helpers/tabContext';
+import { CardContext } from '../Helpers/tabContext';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import PageShowing from './PageShowing';
@@ -15,9 +15,9 @@ import IconButton from '@material-ui/core/IconButton';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import Popover from '@material-ui/core/Popover';
-import cardData from '../Data/cardData';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,9 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleList() {
   const classes = useStyles();
-  const {tab, setTab} = React.useContext(TabContext);
-  const {tabValue, setTabValue} = React.useContext(TabValueContext);
-  const {cardValue, setCardValue} = React.useContext(CardContext);
+  const {cardValue} = React.useContext(CardContext);
 
   const defaultList = roleData;
 
@@ -42,6 +40,12 @@ export default function SimpleList() {
   const [openSnack, setOpenSnack] = React.useState(false);
   const [severity, setSeverity] = useState('');
   const [snack, setSnack] = useState('');
+  const page = parseInt(sessionStorage.getItem("page"));
+
+ 
+    
+  
+  
   
   function handleRemoveItem(id) {
   
@@ -59,6 +63,23 @@ export default function SimpleList() {
       }
       
   };
+
+  const handleUpdate = () =>
+  {
+    updateList(roleData);
+    updateList(list.slice(0, page));
+   
+  };
+  const handleUpdate2 = () =>
+  {
+    
+    
+    updateList(roleData);
+  };
+  
+   
+    
+  
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -75,12 +96,7 @@ export default function SimpleList() {
   function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
-  
-
-  const handleOpenSnack = () => {
-    setOpenSnack(true);
-  };
-
+ 
   const handleCloseSnack = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -94,6 +110,10 @@ export default function SimpleList() {
       <AppBar/>
 
       <Divider />
+      
+
+      <Button onClick={handleUpdate}>Slice</Button>
+      <Button onClick={handleUpdate2}>Reset</Button>
 
       <List component="nav" aria-label="main mailbox folders">
       {list.map((tile, index) => (

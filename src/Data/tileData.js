@@ -11,6 +11,7 @@ import SubmitPage from '../Components/SubmitPage';
 import TodoList from '../Components/TodoList';
 import ModifyRole from '../Components/ModifyRole';
 import ModifyUser from '../Components/ModifyUser';
+import UserDetail from '../Components/UserDetail';
 import ProjectList from '../Components/ProjectList';
 
 const tileData = [
@@ -30,7 +31,7 @@ const tileData = [
       url: 'Users',
       tab: <UserList/>,
       tabValue: <UserPage/>,
-      cardValue: <ModifyUser/>,
+      cardValue: <UserDetail/>,
     },
     {
       id: 2,

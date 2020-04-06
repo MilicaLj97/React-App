@@ -59,7 +59,7 @@ export default function TitlebarGridList() {
 
   const handleChange = event => {
     setState(event.target.value);
-    
+    sessionStorage.setItem("page", event.target.value)
   };
 
   const handleClose = () => {
