@@ -63,11 +63,14 @@ const useStyles = makeStyles(theme => ({
     },
   },
   bar:{
-
     backgroundColor:'darkred!important',
   }, 
 }));
 
+const BarStyle = {
+ minHeight:55,
+ paddingLeft:10,
+};
 export default function SearchAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -87,10 +90,10 @@ export default function SearchAppBar() {
   
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <AppBar position="static" >
-        <Toolbar className={classes.bar}>
-          <div className={classes.search}>
+        <Toolbar className={classes.bar} style={BarStyle}>
+          <div className={classes.search} >
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
