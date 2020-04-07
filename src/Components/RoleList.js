@@ -17,7 +17,7 @@ import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import Popover from '@material-ui/core/Popover';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import Button from '@material-ui/core/Button';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
 
 
 export default function SimpleList() {
@@ -42,11 +41,6 @@ export default function SimpleList() {
   const [snack, setSnack] = useState('');
   const page = parseInt(sessionStorage.getItem("page"));
 
- 
-    
-  
-  
-  
   function handleRemoveItem(id) {
   
       if (window.confirm("Are you sure you want to remove this item?"))
@@ -64,22 +58,6 @@ export default function SimpleList() {
       
   };
 
-  const handleUpdate = () =>
-  {
-    updateList(roleData);
-    updateList(list.slice(0, page));
-   
-  };
-  const handleUpdate2 = () =>
-  {
-    
-    
-    updateList(roleData);
-  };
-  
-   
-    
-  
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -108,13 +86,7 @@ export default function SimpleList() {
   return (
     <div className={classes.root}>
       <AppBar/>
-
-      <Divider />
       
-
-      <Button onClick={handleUpdate}>Slice</Button>
-      <Button onClick={handleUpdate2}>Reset</Button>
-
       <List component="nav" aria-label="main mailbox folders">
       {list.map((tile, index) => (
         <ListItem button key={tile.id} >
@@ -126,7 +98,7 @@ export default function SimpleList() {
           <ListItemText primary={tile.AvailabilityTo} />
           <ListItemText primary={tile.details}/>
           <IconButton aria-label="previous" onClick={handleClick}>
-            <EditRoundedIcon className={classes.icon}/>
+            <MoreHorizIcon className={classes.icon}/>
           </IconButton>
           <Popover
         id={id}
@@ -149,7 +121,7 @@ export default function SimpleList() {
 
         </Popover>
           <IconButton aria-label="play/pause">
-            <DeleteRoundedIcon onClick={(e)=>  {handleRemoveItem(tile.id)}} className={classes.icon}/>
+            <MoreHorizIcon onClick={(e)=>  {handleRemoveItem(tile.id)}} className={classes.icon}/>
           </IconButton>
         </ListItem>
       ))}
