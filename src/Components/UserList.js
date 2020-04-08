@@ -16,6 +16,7 @@ import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import { Dialog } from '@material-ui/core';
 import Popover from '@material-ui/core/Popover';
 import cardData from '../Data/cardData';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +31,13 @@ const useStyles = makeStyles(theme => ({
 export default function SimpleList() {
   const classes = useStyles();
   const {cardValue, setCardValue} = React.useContext(CardContext);
-  const [list, updateList] = useState(userData);
+  const defaultList = userData;
+  const [list, updateList] = useState(defaultList);
+
+  
+  const [title, setTitle] = useState("");
+  const [status, setStatus] = useState("");
+  const [details, setDetails] = useState("");
 
   
   function handleRemoveItem(id) {
@@ -56,7 +63,10 @@ export default function SimpleList() {
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
+  const handleUpdate = () => {
     
+    updateList([...list, { title: title, status: status, details: details}]);
+}
   
 
   return (
@@ -64,10 +74,17 @@ export default function SimpleList() {
       <AppBar/>
 
       <Divider />
-
+      <form>
+      <input type="text"   onChange ={ (e) => setTitle(e.target.value)} />
+      <input type="text"   onChange ={ (e)=> setStatus(e.target.value)} />
+      <input type="text"   onChange ={ (e)=> setDetails(e.target.value)} />
+      <Button onClick={handleUpdate}>update</Button>
+      </form>
+      
       <List component="nav" aria-label="main mailbox folders">
       {list.map(tile => (
-      <ListItem button key={tile.id}>
+        
+      <ListItem key={tile.id}>
       <ListItemAvatar>
           <Avatar src = {tile.img}/>
           </ListItemAvatar>
