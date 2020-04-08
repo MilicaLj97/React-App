@@ -14,6 +14,7 @@ import PageShowing from './PageShowing';
 import IconButton from '@material-ui/core/IconButton';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,7 +23,15 @@ const useStyles = makeStyles(theme => ({
   },
 
 }));
-
+const InputStyle = {
+  width: 150, 
+  marginRight:20,
+  flex:'none',
+  overflow:'hidden',
+};
+const InputDetailStyle = {
+  overflow:'hidden',
+};
 
 
 export default function SimpleList() {
@@ -42,14 +51,14 @@ export default function SimpleList() {
           <ListItemAvatar>
           <Avatar src = {tile.img}/>
           </ListItemAvatar>
-          <ListItemText primary={tile.title}/>
-          <ListItemText primary={tile.status} />
-          <ListItemText primary={tile.details}/>
+          <ListItemText primary={tile.title} style={InputStyle}/>
+          <ListItemText primary={tile.status} style={InputStyle}/>
+          <ListItemText primary={tile.details} style={InputDetailStyle}/>
           <IconButton aria-label="previous" >
-            <EditRoundedIcon className={classes.icon}/>
+            <MoreHorizIcon className={classes.icon}/>
           </IconButton>
           <IconButton aria-label="play/pause">
-            <DeleteRoundedIcon className={classes.icon}/>
+            <MoreHorizIcon className={classes.icon}/>
           </IconButton>
         </ListItem>
       ))}
