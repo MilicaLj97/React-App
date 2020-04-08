@@ -17,15 +17,25 @@ import { Dialog } from '@material-ui/core';
 import Popover from '@material-ui/core/Popover';
 import cardData from '../Data/cardData';
 import Button from '@material-ui/core/Button';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     backgroundColor: theme.palette.background.paper,
+    overflow:'hidden',
   },
 
 }));
-
+const InputStyle = {
+  width: 150, 
+  marginRight:20,
+  flex:'none',
+  overflow:'hidden',
+};
+const InputDetailStyle = {
+  overflow:'hidden',
+};
 
 
 export default function SimpleList() {
@@ -70,7 +80,7 @@ export default function SimpleList() {
   
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <AppBar/>
 
       <Divider />
@@ -84,15 +94,15 @@ export default function SimpleList() {
       <List component="nav" aria-label="main mailbox folders">
       {list.map(tile => (
         
-      <ListItem key={tile.id}>
+      <ListItem key={tile.id} >
       <ListItemAvatar>
           <Avatar src = {tile.img}/>
           </ListItemAvatar>
-          <ListItemText primary={tile.title}/>
-          <ListItemText primary={tile.status} />
-          <ListItemText primary={tile.details}/>
+          <ListItemText primary={tile.title} style={InputStyle}/>
+          <ListItemText primary={tile.status} style={InputStyle}/>
+          <ListItemText primary={tile.details} style={InputDetailStyle}/>
           <IconButton aria-label="previous" onClick={ (e) => handleClick(tile.id)}>
-            <EditRoundedIcon className={classes.icon}/>
+            <MoreHorizIcon className={classes.icon}/>
           </IconButton>
 
           <Popover
@@ -116,7 +126,7 @@ export default function SimpleList() {
 
         </Popover>
           <IconButton aria-label="play/pause" onClick={(e)=>  {handleRemoveItem(tile.id)}}>
-            <DeleteRoundedIcon className={classes.icon} />
+            <MoreHorizIcon className={classes.icon} />
           </IconButton>
           
           </ListItem>

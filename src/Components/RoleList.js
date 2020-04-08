@@ -27,7 +27,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
+const InputStyle = {
+  width: 150, 
+  marginRight:20,
+  flex:'none',
+  overflow:'hidden',
+};
+const InputDetailStyle = {
+  overflow:'hidden',
+};
 
 export default function SimpleList() {
   const classes = useStyles();
@@ -93,10 +101,10 @@ export default function SimpleList() {
           <ListItemAvatar>
           <Avatar src = {tile.img}/>
           </ListItemAvatar>
-          <ListItemText primary={tile.title}/>
-          <ListItemText primary={tile.AvailabilityFrom} />
-          <ListItemText primary={tile.AvailabilityTo} />
-          <ListItemText primary={tile.details}/>
+          <ListItemText primary={tile.title} style={InputStyle}/>
+          <ListItemText primary={tile.AvailabilityFrom} style={InputStyle}/>
+          <ListItemText primary={tile.AvailabilityTo} style={InputStyle}/>
+          <ListItemText primary={tile.details} style={InputDetailStyle}/>
           <IconButton aria-label="previous" onClick={handleClick}>
             <MoreHorizIcon className={classes.icon}/>
           </IconButton>
