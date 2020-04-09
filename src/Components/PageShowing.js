@@ -7,12 +7,17 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       marginTop: theme.spacing(2),
     },
-    display: 'flex-inline',
-    padding: 20,
     overflow: 'hidden',
-    position: 'fixed',
     bottom:' 30px',
     right: 0,
+    marginLeft:'auto',
+  },
+  page:{
+    backgroundColor:'white!important',
+    bottom: '0',
+    width: '100%',
+    height: 52,   
+    display:'flex', 
   },
 }));
 
@@ -20,8 +25,10 @@ export default function PaginationButtons() {
   const classes = useStyles();
 
   return (
+    <div className={classes.page}>
     <div className={classes.root}>
       <Pagination count={10} showFirstButton showLastButton />
+    </div>
     </div>
   );
 }
